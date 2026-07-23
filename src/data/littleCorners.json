@@ -1,0 +1,50 @@
+[
+  {
+    "id": "book-depot",
+    "name": "The English Book Depot",
+    "type": "Cafe & Books",
+    "area": "Rajpur Road",
+    "description": "An iconic Bookstore with a cozy café tucked in the back. Smells of fresh paper and dark roast coffee. Ideal for losing an afternoon in a novel.",
+    "recommendation": "Try the Hibiscus Iced Tea and sit by the window shelf."
+  },
+  {
+    "id": "pine-tea",
+    "name": "Chai Under the Pines",
+    "type": "Tea Spot",
+    "area": "Mussoorie Diversion",
+    "description": "A quiet wooden stall serving steaming hot ginger chai in clay cups (kulhads). Surrounded by towering pines and cool mountain breezes.",
+    "recommendation": "Ginger Cardamom Chai + Bun Makhan toasted over hot coals."
+  },
+  {
+    "id": "canal-walk",
+    "name": "Canal Road Trail",
+    "type": "Rain Walk",
+    "area": "Jakhan",
+    "description": "A leafy path running alongside the old irrigation canals. Beautifully quiet during light showers with view of distant green ridges.",
+    "recommendation": "Go around 5 PM just as the streetlights begin to flicker on."
+  },
+  {
+    "id": "elloras",
+    "name": "Ellora's Melting Moments",
+    "type": "Comfort Food",
+    "area": "Astley Hall",
+    "description": "An old school bakery from the Ruskin Bond era. Cozy, nostalgic, and filled with the scent of vanilla essence and butter cream.",
+    "recommendation": "Famous Butter Toffees (Stick Jaws) and Plum Cake."
+  },
+  {
+    "id": "fri-lawns",
+    "name": "FRI Grounds",
+    "type": "Weekend Reset",
+    "area": "Chakrata Road",
+    "description": "Colossal Roman-style brick campus surrounded by dense botanical gardens. A massive quiet space to sketch, walk, or just sit under ancient trees.",
+    "recommendation": "Carry a notebook and walk down the main tree-lined boulevard."
+  },
+  {
+    "id": "emergency-med",
+    "name": "Synergy Hospital Pharmacy",
+    "type": "Emergency Spot",
+    "area": "Canal Road",
+    "description": "A well-stocked 24/7 medical store and reliable clinic. Keep this address saved in your phone notes. Good to know it's always open.",
+    "recommendation": "24/7 helpline number: +91 135 222 6000"
+  }
+]

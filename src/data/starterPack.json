@@ -1,0 +1,44 @@
+[
+  {
+    "id": "essential-rain",
+    "category": "Essentials",
+    "title": "A Sturdy Umbrella & Windcheater",
+    "description": "Dehradun rain is legendary and sudden. Always keep one in your backpack. A windcheater is better than a thick coat, as it stays humid but breezy.",
+    "importance": "High"
+  },
+  {
+    "id": "essential-tempo",
+    "category": "Essentials",
+    "title": "Tempo Cash & Loose Change",
+    "description": "Local blue and silver 'Tempos' are the lifeline of Dehradun. They rarely accept UPI for small fares. Keep a small pouch of 10 and 20 rupee notes.",
+    "importance": "Medium"
+  },
+  {
+    "id": "essential-warmth",
+    "category": "Essentials",
+    "title": "Valley Fleece Blanket",
+    "description": "The temperature drops quickly in October once the sun sets behind the hills. A light fleece blanket keeps you comfortable without needing heavy winter bedding yet.",
+    "importance": "High"
+  },
+  {
+    "id": "habit-pines",
+    "category": "Habits",
+    "title": "Pine Path Walks",
+    "description": "Take 20 minutes in the early morning to walk near the pine lines. The air in Dehradun is cleanest at dawn, and it is a beautiful way to center your day.",
+    "importance": "Grounding"
+  },
+  {
+    "id": "habit-chai",
+    "category": "Habits",
+    "title": "The 4 PM Chai Ritual",
+    "description": "Make a habit of stepping away from your books or screen at 4 PM. Sit by a window or a tea stall, order a hot cup, and just watch the rain or the mountains.",
+    "importance": "Grounding"
+  },
+  {
+    "id": "habit-notes",
+    "category": "Habits",
+    "title": "Pen & Paper Journal",
+    "description": "Write down one sentence about your day before sleeping. In a new environment, memories blur quickly. A single written line acts as an anchor.",
+    "importance": "Grounding"
+  }
+]

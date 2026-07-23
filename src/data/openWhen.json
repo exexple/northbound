@@ -1,0 +1,30 @@
+[
+  {
+    "id": "miss-home",
+    "trigger": "you miss home",
+    "title": "Open when you miss home",
+    "message": "It is completely normal for the quietness of the evening to feel a little too quiet. Remember that home isn't just a physical place you left behind; it is a foundation you carry inside yourself. Call if you need to, but also look around your room—your books, your favorite mug, the cozy blanket. You are building a new extension of home right here. Take a slow breath. You are okay.",
+    "action": "Ritual: Brew a hot drink, put on a familiar song, and write down one thing you are looking forward to tomorrow."
+  },
+  {
+    "id": "overwhelmed",
+    "trigger": "you’re overwhelmed",
+    "title": "Open when you're overwhelmed",
+    "message": "When the lectures, the reading lists, and the social noise pile up all at once, your mind tries to solve the next three months in a single second. Stop. You do not have to figure out the semester today. You only need to handle the next ten minutes. Close your eyes, inhale for four seconds, hold for four, and exhale for four. The work will wait. You are capable, but you are also allowed to rest.",
+    "action": "Ritual: Close your books, set a timer for 15 minutes, lay flat, and listen to the rain playlist."
+  },
+  {
+    "id": "need-reset",
+    "trigger": "you need a reset",
+    "title": "Open when you need a reset",
+    "message": "If you've spent the last few hours scrolling, worrying, or sitting in the same posture, it's time to break the loop. A reset isn't a massive life change; it's a series of physical adjustments. Stand up, open the window to let the fresh mountain air in, wash your face with cold water, and drink a full glass of water. Tidy up just your desk. Clear physical space leads to clear mental space.",
+    "action": "Ritual: Empty your bin, wipe down your desk, drink a glass of water, and do a quick 2-minute stretch."
+  },
+  {
+    "id": "hard-day",
+    "trigger": "you made it through a hard day",
+    "title": "Open when you made it through a hard day",
+    "message": "You made it. Maybe things didn't go as planned, maybe a class was frustrating, or maybe the weight of adjusting felt heavy today. But the day is over. You survived it, and now you can let it go. You do not need to analyze what went wrong tonight. Sleep is the best form of repair. Pull the warm blanket up. Tomorrow is a brand new station on the track.",
+    "action": "Ritual: Put your phone on 'Do Not Disturb', dim the lights, and let yourself sleep without setting an early alarm if possible."
+  }
+]

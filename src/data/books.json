@@ -1,0 +1,32 @@
+[
+  {
+    "id": "room-roof",
+    "title": "The Room on the Roof",
+    "author": "Ruskin Bond",
+    "curatorNote": "Written by Ruskin when he was just seventeen, living in Dehradun. It captures the local streets, the dust, the heavy monsoon, and the intense, shifting friendships of youth.",
+    "whyFits": "It is the ultimate Dehradun coming-of-age story. It teaches you that a small room of one's own under the sloping roofs can be the center of the world.",
+    "pdfUrl": "/books/room-on-the-roof.pdf",
+    "coverBg": "linear-gradient(135deg, #2c3e50 0%, #0f2027 100%)",
+    "accentColor": "#a87c66"
+  },
+  {
+    "id": "rain-mountains",
+    "title": "Rain in the Mountains",
+    "author": "Ruskin Bond",
+    "curatorNote": "A quiet collection of diary entries, essays, and poems about the rhythmic cycles of valley rains, mountain birds, and the slow growth of pine seedlings.",
+    "whyFits": "Perfect for reading when it pours outside your hostel window. It teaches you to love the damp mist, the moss on the walls, and the quietness of the hills.",
+    "pdfUrl": "/books/rain-in-the-mountains.pdf",
+    "coverBg": "linear-gradient(135deg, #1b4d3e 0%, #0d2b22 100%)",
+    "accentColor": "#ebdcb9"
+  },
+  {
+    "id": "letters-poet",
+    "title": "Letters to a Young Poet",
+    "author": "Rainer Maria Rilke",
+    "curatorNote": "Ten letters written to an aspiring cadet about solitude, love, career choices, and the slow, internal process of growth. Elegant and incredibly profound.",
+    "whyFits": "An essential companion for starting college. Rilke's words will remind you to 'be patient toward all that is unsolved in your heart' when things feel overwhelming.",
+    "pdfUrl": "/books/letters-to-a-young-poet.pdf",
+    "coverBg": "linear-gradient(135deg, #5c2c16 0%, #2b1107 100%)",
+    "accentColor": "#a87c66"
+  }
+]

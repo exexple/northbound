@@ -1,0 +1,26 @@
+[
+  {
+    "id": "misty-mornings",
+    "title": "Misty Dehra Mornings",
+    "description": "Slow acoustic patterns, ambient mountain folk, and soft instrumentals. Best played when the fog rolls down from Mussoorie.",
+    "songs": ["Warm acoustic strums", "Distant bird calls", "Ambient field recordings"],
+    "spotifyUrl": "https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO",
+    "themeColor": "#a87c66"
+  },
+  {
+    "id": "library-nook",
+    "title": "Library Nook",
+    "description": "Quiet jazz noir, minimal piano keys, and soft focus lofi. For wooden bookshelves, rain-streaked windows, and studying in peace.",
+    "songs": ["Muted piano chords", "Gentle double bass", "Rain on copper roof"],
+    "spotifyUrl": "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhp7l3r0",
+    "themeColor": "#8e919a"
+  },
+  {
+    "id": "train-vignettes",
+    "title": "Train Window Vignettes",
+    "description": "Dream pop, warm indie, and cinematic soundscapes. Designed for the rhythm of the rails and watching the landscape change.",
+    "songs": ["Rhythmic analog synths", "Reverbed guitar riffs", "Steady clicks and clacks"],
+    "spotifyUrl": "https://open.spotify.com/playlist/37i9dQZF1DX35oM5cjIA06",
+    "themeColor": "#ebdcb9"
+  }
+]
