@@ -1,26 +1,26 @@
 [
   {
-    "id": "misty-mornings",
-    "title": "Misty Dehra Mornings",
-    "description": "Slow acoustic patterns, ambient mountain folk, and soft instrumentals. Best played when the fog rolls down from Mussoorie.",
+    "id": "evening-lights",
+    "title": "the evening lights",
+    "description": "Slow acoustic patterns, ambient mountain folk, and soft instrumentals. Best played when the light down from the mountains of Mussoorie.",
     "songs": ["Warm acoustic strums", "Distant bird calls", "Ambient field recordings"],
-    "spotifyUrl": "https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO",
+    "spotifyUrl": "https://open.spotify.com/playlist/2YLF6SGyqcz27SrDbp6FzZ?si=a0940a686d7a479f",
     "themeColor": "#a87c66"
   },
   {
-    "id": "library-nook",
-    "title": "Library Nook",
-    "description": "Quiet jazz noir, minimal piano keys, and soft focus lofi. For wooden bookshelves, rain-streaked windows, and studying in peace.",
+    "id": "weeping-sky",
+    "title": "when the sky weeps",
+    "description": "Quiet jazz noir, minimal piano keys, and soft focus lofi. For rain-streaked windows, and studying in peace.",
     "songs": ["Muted piano chords", "Gentle double bass", "Rain on copper roof"],
-    "spotifyUrl": "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhp7l3r0",
+    "spotifyUrl": "https://open.spotify.com/playlist/47NEKhEBJxw8qewY35XABl?si=f3da1861d01a4a77",
     "themeColor": "#8e919a"
   },
   {
-    "id": "train-vignettes",
-    "title": "Train Window Vignettes",
+    "id": "lights-on",
+    "title": "lights still on",
     "description": "Dream pop, warm indie, and cinematic soundscapes. Designed for the rhythm of the rails and watching the landscape change.",
     "songs": ["Rhythmic analog synths", "Reverbed guitar riffs", "Steady clicks and clacks"],
-    "spotifyUrl": "https://open.spotify.com/playlist/37i9dQZF1DX35oM5cjIA06",
+    "spotifyUrl": "https://open.spotify.com/playlist/36D0fepspGgxUx72uKAUjA?si=4c4c5783468d4f14",
     "themeColor": "#ebdcb9"
   }
 ]
