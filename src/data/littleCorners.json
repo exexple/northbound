@@ -2,9 +2,9 @@
   {
     "id": "book-depot",
     "name": "The English Book Depot",
-    "type": "Cafe & Books",
+    "type": "Books & Cafe",
     "area": "Rajpur Road",
-    "description": "An iconic Bookstore with a cozy café tucked in the back. Smells of fresh paper and dark roast coffee. Ideal for losing an afternoon in a novel.",
+    "description": "An iconic bookstore with a cozy café tucked in the back. Smells of fresh paper and dark roast coffee. Ideal for losing an afternoon in a novel.",
     "recommendation": "Try the Hibiscus Iced Tea and sit by the window shelf."
   },
   {
@@ -12,7 +12,7 @@
     "name": "Chai Under the Pines",
     "type": "Tea Spot",
     "area": "Mussoorie Diversion",
-    "description": "A quiet wooden stall serving steaming hot ginger chai in clay cups (kulhads). Surrounded by towering pines and cool mountain breezes.",
+    "description": "A quiet wooden stall serving steaming hot ginger chai in clay cups. Surrounded by towering pines and cool mountain breezes.",
     "recommendation": "Ginger Cardamom Chai + Bun Makhan toasted over hot coals."
   },
   {
@@ -20,7 +20,7 @@
     "name": "Canal Road Trail",
     "type": "Rain Walk",
     "area": "Jakhan",
-    "description": "A leafy path running alongside the old irrigation canals. Beautifully quiet during light showers with view of distant green ridges.",
+    "description": "A leafy path running alongside old irrigation canals. Beautifully quiet during light showers with views of distant green ridges.",
     "recommendation": "Go around 5 PM just as the streetlights begin to flicker on."
   },
   {
@@ -28,7 +28,7 @@
     "name": "Ellora's Melting Moments",
     "type": "Comfort Food",
     "area": "Astley Hall",
-    "description": "An old school bakery from the Ruskin Bond era. Cozy, nostalgic, and filled with the scent of vanilla essence and butter cream.",
+    "description": "An old-school bakery from the Ruskin Bond era. Cozy, nostalgic, and filled with the scent of vanilla essence and butter cream.",
     "recommendation": "Famous Butter Toffees (Stick Jaws) and Plum Cake."
   },
   {
@@ -38,6 +38,54 @@
     "area": "Chakrata Road",
     "description": "Colossal Roman-style brick campus surrounded by dense botanical gardens. A massive quiet space to sketch, walk, or just sit under ancient trees.",
     "recommendation": "Carry a notebook and walk down the main tree-lined boulevard."
+  },
+  {
+    "id": "daias-cafe",
+    "name": "Daia's Cafe & Bakery",
+    "type": "Cozy Cafe",
+    "area": "Rajpur Road",
+    "description": "Tucked away in a quiet neighbourhood lane. A warm bakery-café with fresh slices of cake, a cup of coffee, and a very relaxed, intimate setting away from the loud crowds.",
+    "recommendation": "Their fresh pastries in the morning are heavenly. Bring a book."
+  },
+  {
+    "id": "blue-tokai",
+    "name": "Blue Tokai Coffee Roasters",
+    "type": "Coffee",
+    "area": "Rajpur Road",
+    "description": "A brilliant atmosphere for settling down with a notebook. Freshly roasted coffee, ambient music, and comfortable seating. Great for writing, reading, or a quiet conversation.",
+    "recommendation": "Order their seasonal cold brew and grab a window seat."
+  },
+  {
+    "id": "silent-bakery",
+    "name": "The Silent Bakery by the Deaf",
+    "type": "Bakery",
+    "area": "Clement Town",
+    "description": "A truly special and peaceful place. Run by differently-abled staff, it offers a warm, incredibly quiet environment. Known for the absolute freshest croissants, breads, and pastries.",
+    "recommendation": "Their croissants are legendary. Go early before they sell out."
+  },
+  {
+    "id": "crossword",
+    "name": "Crossword Bookstore",
+    "type": "Bookstore",
+    "area": "Pacific Mall",
+    "description": "A modern, well-stocked space with a cozy browsing experience. Flip through a few potential reads and enjoy the quiet hum of a dedicated book space.",
+    "recommendation": "Browse the Indian fiction section — you'll find gems."
+  },
+  {
+    "id": "mdda-park",
+    "name": "MDDA Park",
+    "type": "Peaceful Park",
+    "area": "Rajpur Road",
+    "description": "One of the best spots for lush green surroundings and stunning views of the surrounding hills. Clean, well-maintained, with plenty of quiet benches to sit, relax, and breathe.",
+    "recommendation": "Perfect for a late afternoon walk when the light gets golden."
+  },
+  {
+    "id": "deer-park",
+    "name": "Deer Park Malsi",
+    "type": "Nature Walk",
+    "area": "Mussoorie Road",
+    "description": "Despite the name, it is a sprawling, heavily wooded park. Paved walkways, rich green canopy covers, and a calm vibe — perfect for a long, leisurely walk under the trees.",
+    "recommendation": "Go on a weekday morning for the quietest experience."
   },
   {
     "id": "emergency-med",

@@ -1,16 +1,88 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import StationWrapper from '../components/StationWrapper';
 import starterPack from '../data/starterPack';
 import littleCorners from '../data/littleCorners';
-import { Check, Compass, MapPin, Sparkles, PhoneCall } from 'lucide-react';
+import { Check, MapPin } from 'lucide-react';
+
+// Map node positions for SVG schematic map (viewBox 600x450)
+const MAP_NODES = {
+  'book-depot': { x: 300, y: 220, color: '#a87c66' },
+  'pine-tea': { x: 420, y: 80, color: '#ebdcb9' },
+  'canal-walk': { x: 370, y: 160, color: '#ebdcb9' },
+  'elloras': { x: 280, y: 260, color: '#a87c66' },
+  'fri-lawns': { x: 130, y: 260, color: '#ebdcb9' },
+  'daias-cafe': { x: 340, y: 195, color: '#c4a882' },
+  'blue-tokai': { x: 320, y: 175, color: '#7ba7d1' },
+  'silent-bakery': { x: 160, y: 340, color: '#ebdcb9' },
+  'crossword': { x: 450, y: 280, color: '#a87c66' },
+  'mdda-park': { x: 380, y: 230, color: '#6b9e6b' },
+  'deer-park': { x: 460, y: 120, color: '#6b9e6b' },
+  'emergency-med': { x: 350, y: 200, color: '#e06060' }
+};
+
+// Category icon mapping
+const TYPE_ICONS = {
+  'Books & Cafe': '📖',
+  'Tea Spot': '☕',
+  'Rain Walk': '🌿',
+  'Comfort Food': '🍰',
+  'Weekend Reset': '🌳',
+  'Cozy Cafe': '☕',
+  'Coffee': '☕',
+  'Bakery': '🥐',
+  'Bookstore': '📚',
+  'Peaceful Park': '🌿',
+  'Nature Walk': '🌲',
+  'Emergency Spot': '🏥',
+};
+
+const ChecklistItem = memo(({ item, isChecked, onToggle }) => (
+  <div
+    onClick={onToggle}
+    className={`p-4 border rounded-md cursor-pointer transition-all duration-300 flex gap-4 ${
+      isChecked
+        ? 'bg-brand-surface-light/20 border-brand-earth/30 text-brand-muted'
+        : 'bg-brand-surface border-brand-surface-light/55 hover:border-brand-earth/40 text-brand-text'
+    }`}
+  >
+    <div className="mt-0.5">
+      <div
+        className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
+          isChecked
+            ? 'bg-brand-earth border-brand-earth text-brand-bg scale-95'
+            : 'border-brand-muted/40 bg-transparent'
+        }`}
+      >
+        {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+      </div>
+    </div>
+    <div>
+      <span
+        className={`text-xs font-semibold text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded ${
+          item.importance === 'High' ? 'bg-red-500/10 text-red-400' : 'bg-brand-earth/10 text-brand-earth'
+        }`}
+      >
+        {item.importance}
+      </span>
+      <h4 className={`text-sm font-medium mt-1 ${isChecked ? 'line-through opacity-60' : ''}`}>
+        {item.title}
+      </h4>
+      <p className="text-xs text-brand-muted/80 font-light leading-relaxed mt-1">
+        {item.description}
+      </p>
+    </div>
+  </div>
+));
 
 const Station03_SettlingIn = () => {
-  const [activeSubTab, setActiveSubTab] = useState('starter'); // 'starter' | 'corners'
+  const [activeSubTab, setActiveSubTab] = useState('starter');
   const [checkedItems, setCheckedItems] = useState({});
   const [selectedSpot, setSelectedSpot] = useState(littleCorners[0]);
 
-  // Load checked items from localStorage
+  const essentials = useMemo(() => starterPack.filter(item => item.category === 'Essentials'), []);
+  const habits = useMemo(() => starterPack.filter(item => item.category === 'Habits'), []);
+
   useEffect(() => {
     const saved = localStorage.getItem('northbound_starter_checklist');
     if (saved) {
@@ -24,26 +96,15 @@ const Station03_SettlingIn = () => {
     localStorage.setItem('northbound_starter_checklist', JSON.stringify(updated));
   };
 
-  // Define custom map node positions for our SVG schematic map of Dehradun
-  // Coordinates are relative to a 500x400 viewBox
-  const mapNodes = {
-    'book-depot': { x: 260, y: 190, color: '#a87c66' },
-    'pine-tea': { x: 340, y: 80, color: '#ebdcb9' },
-    'canal-walk': { x: 310, y: 140, color: '#ebdcb9' },
-    'elloras': { x: 250, y: 220, color: '#a87c66' },
-    'fri-lawns': { x: 130, y: 230, color: '#ebdcb9' },
-    'emergency-med': { x: 290, y: 170, color: '#ebdcb9' }
-  };
-
   return (
     <StationWrapper
       id="settling"
       stationNumber="03"
       title="Settling In"
-      subtitle="Essentials for your bag and steps in the valley"
+      subtitle="Essentials for your bag and quiet corners of the valley"
     >
       <div className="max-w-4xl w-full">
-        {/* Generous Sub-Tabs */}
+        {/* Sub-Tabs */}
         <div className="flex gap-4 border-b border-brand-surface-light/45 pb-px mb-8 select-none">
           <button
             onClick={() => setActiveSubTab('starter')}
@@ -77,7 +138,6 @@ const Station03_SettlingIn = () => {
 
         <AnimatePresence mode="wait">
           {activeSubTab === 'starter' ? (
-            /* STARTER PACK TAB */
             <motion.div
               key="starter-tab"
               initial={{ opacity: 0, y: 10 }}
@@ -89,196 +149,170 @@ const Station03_SettlingIn = () => {
               {/* Left Column: First-Week Essentials */}
               <div>
                 <h3 className="text-lg font-serif text-brand-cream mb-4 flex items-center gap-2 select-none">
-                  <Sparkles className="w-4 h-4 text-brand-earth" />
+                  <span className="text-brand-earth text-base">✦</span>
                   First-Week Essentials
                 </h3>
                 <div className="space-y-4">
-                  {starterPack
-                    .filter((item) => item.category === 'Essentials')
-                    .map((item) => {
-                      const isChecked = !!checkedItems[item.id];
-                      return (
-                        <div
-                          key={item.id}
-                          onClick={() => toggleCheckItem(item.id)}
-                          className={`p-4 border rounded-md cursor-pointer transition-all duration-300 flex gap-4 ${
-                            isChecked
-                              ? 'bg-brand-surface-light/20 border-brand-earth/30 text-brand-muted'
-                              : 'bg-brand-surface border-brand-surface-light/55 hover:border-brand-earth/40 text-brand-text'
-                          }`}
-                        >
-                          {/* Tactile Checkbox */}
-                          <div className="mt-0.5">
-                            <div
-                              className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                                isChecked
-                                  ? 'bg-brand-earth border-brand-earth text-brand-bg scale-95'
-                                  : 'border-brand-muted/40 bg-transparent'
-                              }`}
-                            >
-                              {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
-                            </div>
-                          </div>
-                          <div>
-                            <span
-                              className={`text-xs font-semibold text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded ${
-                                item.importance === 'High' ? 'bg-red-500/10 text-red-400' : 'bg-brand-earth/10 text-brand-earth'
-                              }`}
-                            >
-                              {item.importance}
-                            </span>
-                            <h4 className={`text-sm font-medium mt-1 ${isChecked ? 'line-through opacity-60' : ''}`}>
-                              {item.title}
-                            </h4>
-                            <p className="text-xs text-brand-muted/80 font-light leading-relaxed mt-1">
-                              {item.description}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
+                  {essentials.map((item) => (
+                    <ChecklistItem
+                      key={item.id}
+                      item={item}
+                      isChecked={!!checkedItems[item.id]}
+                      onToggle={() => toggleCheckItem(item.id)}
+                    />
+                  ))}
                 </div>
               </div>
 
               {/* Right Column: Grounding Habits */}
               <div>
                 <h3 className="text-lg font-serif text-brand-cream mb-4 flex items-center gap-2 select-none">
-                  <Compass className="w-4 h-4 text-brand-earth animate-spin-slow" />
+                  <span className="text-brand-earth text-base">✦</span>
                   Grounding Habits
                 </h3>
                 <div className="space-y-4">
-                  {starterPack
-                    .filter((item) => item.category === 'Habits')
-                    .map((item) => {
-                      const isChecked = !!checkedItems[item.id];
-                      return (
-                        <div
-                          key={item.id}
-                          onClick={() => toggleCheckItem(item.id)}
-                          className={`p-4 border rounded-md cursor-pointer transition-all duration-300 flex gap-4 ${
-                            isChecked
-                              ? 'bg-brand-surface-light/20 border-brand-earth/30 text-brand-muted'
-                              : 'bg-brand-surface border-brand-surface-light/55 hover:border-brand-earth/40 text-brand-text'
-                          }`}
-                        >
-                          {/* Tactile Checkbox */}
-                          <div className="mt-0.5">
-                            <div
-                              className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                                isChecked
-                                  ? 'bg-brand-earth border-brand-earth text-brand-bg scale-95'
-                                  : 'border-brand-muted/40 bg-transparent'
-                              }`}
-                            >
-                              {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
-                            </div>
-                          </div>
-                          <div>
-                            <span className="text-xs font-semibold text-[9px] uppercase tracking-wider bg-brand-earth/10 text-brand-earth px-1.5 py-0.5 rounded">
-                              {item.importance}
-                            </span>
-                            <h4 className={`text-sm font-medium mt-1 ${isChecked ? 'line-through opacity-60' : ''}`}>
-                              {item.title}
-                            </h4>
-                            <p className="text-xs text-brand-muted/80 font-light leading-relaxed mt-1">
-                              {item.description}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
+                  {habits.map((item) => (
+                    <ChecklistItem
+                      key={item.id}
+                      item={item}
+                      isChecked={!!checkedItems[item.id]}
+                      onToggle={() => toggleCheckItem(item.id)}
+                    />
+                  ))}
                 </div>
               </div>
             </motion.div>
           ) : (
-            /* CURATED LOCAL GUIDE TAB (LITTLE CORNERS) */
             <motion.div
               key="corners-tab"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
-              className="flex flex-col lg:flex-row gap-8 items-stretch"
+              className="flex flex-col lg:flex-row gap-6 items-stretch"
             >
-              {/* Interactive Vector Map (Left on large screen, top on mobile) */}
-              <div className="flex-1 bg-brand-surface border border-brand-surface-light/45 rounded-lg p-4 relative overflow-hidden flex flex-col justify-center min-h-[300px]">
+              {/* Interactive Vector Map */}
+              <div className="flex-1 bg-brand-surface border border-brand-surface-light/40 rounded-lg p-4 relative overflow-hidden flex flex-col justify-center min-h-[350px]">
                 <div className="absolute top-4 left-4 z-10 select-none">
                   <span className="text-[9px] font-sans tracking-[0.25em] text-brand-earth font-bold uppercase block">
                     VALLEY SCHEMATIC
                   </span>
                   <span className="text-[10px] text-brand-muted italic font-serif">
-                    Click pins to explore spots
+                    Tap pins to explore spots
                   </span>
                 </div>
 
-                {/* Dehradun Custom SVG Map Layout */}
-                <svg className="w-full h-[280px] text-brand-muted/15" viewBox="0 0 500 350" fill="none">
-                  {/* Winding roads (paths) */}
-                  {/* Rajpur Road */}
-                  <path d="M 250,350 C 250,260 260,200 290,140 C 310,100 330,80 350,0" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3,3" />
-                  {/* Canal Road */}
-                  <path d="M 290,140 C 290,120 300,100 310,90 C 320,80 330,60 340,30" stroke="currentColor" strokeWidth="1.5" />
-                  {/* Chakrata Road */}
-                  <path d="M 250,220 C 200,220 150,225 0,230" stroke="currentColor" strokeWidth="2.0" />
-                  
-                  {/* Valley contour lines or rivers */}
-                  <path d="M 50,350 C 120,300 110,180 80,0" stroke="currentColor" strokeWidth="1" strokeOpacity="0.3" />
-                  <path d="M 450,350 C 400,280 390,150 420,0" stroke="currentColor" strokeWidth="1" strokeOpacity="0.3" />
+                {/* Place count badge */}
+                <div className="absolute top-4 right-4 z-10 text-[9px] font-mono text-brand-muted/60 select-none">
+                  {littleCorners.length} PLACES
+                </div>
 
-                  {/* Topographical pine trees */}
-                  <g opacity="0.1" stroke="#ebdcb9" strokeWidth="1">
-                    <polygon points="360,60 365,70 355,70" />
-                    <polygon points="361,50 365,58 357,58" />
-                    <polygon points="120,80 125,90 115,90" />
-                    <polygon points="140,110 145,120 135,120" />
+                {/* Dehradun Custom SVG Map */}
+                <svg className="w-full h-[320px] md:h-[360px] text-brand-muted/10" viewBox="0 0 600 450" fill="none">
+                  {/* Winding roads */}
+                  <path d="M 300,440 C 300,320 310,250 340,180 C 360,130 400,80 430,0" stroke="currentColor" strokeWidth="2.5" strokeDasharray="4,3" />
+                  <path d="M 340,180 C 340,160 360,130 380,110 C 400,90 420,60 440,20" stroke="currentColor" strokeWidth="1.5" />
+                  <path d="M 300,260 C 240,260 180,265 0,270" stroke="currentColor" strokeWidth="2.0" />
+                  {/* Rajpur Road main artery */}
+                  <path d="M 300,440 C 310,380 320,340 330,300 C 340,270 350,240 360,210" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3,2" />
+                  {/* Clement Town fork */}
+                  <path d="M 280,300 C 240,320 200,340 160,350" stroke="currentColor" strokeWidth="1.5" />
+                  {/* Pacific Mall road */}
+                  <path d="M 360,260 C 400,270 430,275 460,280" stroke="currentColor" strokeWidth="1.5" />
+
+                  {/* Valley contour lines */}
+                  <path d="M 50,440 C 100,370 90,220 70,0" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.3" />
+                  <path d="M 550,440 C 500,350 490,180 520,0" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.3" />
+
+                  {/* Pine trees */}
+                  <g opacity="0.08" stroke="#ebdcb9" strokeWidth="0.8">
+                    <polygon points="440,60 445,70 435,70" />
+                    <polygon points="441,50 445,58 437,58" />
+                    <polygon points="100,80 105,90 95,90" />
+                    <polygon points="120,110 125,120 115,120" />
+                    <polygon points="500,100 505,110 495,110" />
+                    <polygon points="80,180 85,190 75,190" />
                   </g>
 
-                  {/* Styled Labels for Landmark Areas */}
-                  <text x="360" y="40" fill="#8e919a" fontSize="10" fontFamily="serif" fontStyle="italic" opacity="0.6">to Mussoorie</text>
-                  <text x="140" y="250" fill="#8e919a" fontSize="10" fontFamily="sans-serif" opacity="0.6">Chakrata Rd</text>
-                  <text x="280" y="320" fill="#8e919a" fontSize="10" fontFamily="sans-serif" opacity="0.6">Rajpur Rd</text>
+                  {/* Area Labels */}
+                  <text x="440" y="35" fill="#8e919a" fontSize="9" fontFamily="serif" fontStyle="italic" opacity="0.5">to Mussoorie</text>
+                  <text x="130" y="285" fill="#8e919a" fontSize="9" fontFamily="sans-serif" opacity="0.4">Chakrata Rd</text>
+                  <text x="310" y="410" fill="#8e919a" fontSize="9" fontFamily="sans-serif" opacity="0.4">Rajpur Rd</text>
+                  <text x="130" y="360" fill="#8e919a" fontSize="8" fontFamily="sans-serif" opacity="0.35">Clement Town</text>
+                  <text x="440" y="295" fill="#8e919a" fontSize="8" fontFamily="sans-serif" opacity="0.35">Pacific Mall</text>
 
-                  {/* Animated Interactive Pins */}
+                  {/* Interactive Pins */}
                   {littleCorners.map((spot) => {
-                    const node = mapNodes[spot.id] || { x: 250, y: 175, color: '#a87c66' };
+                    const node = MAP_NODES[spot.id] || { x: 300, y: 225, color: '#a87c66' };
                     const isSelected = selectedSpot.id === spot.id;
                     return (
                       <g
                         key={spot.id}
-                        className="cursor-pointer group"
+                        className="cursor-pointer"
                         onClick={() => setSelectedSpot(spot)}
                       >
-                        {/* Ripple ring for selected/hovered pin */}
-                        <motion.circle
-                          cx={node.x}
-                          cy={node.y}
-                          r={isSelected ? 10 : 6}
-                          fill="transparent"
-                          stroke={node.color}
-                          strokeWidth="1.5"
-                          animate={isSelected ? { r: [8, 16, 8] } : { r: 6 }}
-                          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-                        />
-                        {/* Small glowing center pin */}
+                        {/* Ripple ring for selected */}
+                        {isSelected && (
+                          <circle
+                            cx={node.x}
+                            cy={node.y}
+                            r="14"
+                            fill="transparent"
+                            stroke={node.color}
+                            strokeWidth="1"
+                            opacity="0.3"
+                          >
+                            <animate attributeName="r" values="10;18;10" dur="2s" repeatCount="indefinite" />
+                            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite" />
+                          </circle>
+                        )}
+                        {/* Outer ring */}
                         <circle
                           cx={node.x}
                           cy={node.y}
-                          r={isSelected ? 4 : 3}
-                          fill={node.color}
-                          className="group-hover:fill-brand-earth transition-colors"
+                          r={isSelected ? 7 : 5}
+                          fill="transparent"
+                          stroke={node.color}
+                          strokeWidth="1.5"
+                          opacity={isSelected ? 0.7 : 0.4}
+                          className="transition-all duration-300"
                         />
+                        {/* Center pin */}
+                        <circle
+                          cx={node.x}
+                          cy={node.y}
+                          r={isSelected ? 3.5 : 2.5}
+                          fill={node.color}
+                          opacity={isSelected ? 1 : 0.7}
+                          className="transition-all duration-300"
+                        />
+                        {/* Small label on hover / selected */}
+                        {isSelected && (
+                          <text
+                            x={node.x}
+                            y={node.y - 14}
+                            fill={node.color}
+                            fontSize="7"
+                            fontFamily="sans-serif"
+                            fontWeight="600"
+                            textAnchor="middle"
+                            letterSpacing="0.5"
+                          >
+                            {spot.name.length > 18 ? spot.name.substring(0, 18) + '…' : spot.name}
+                          </text>
+                        )}
                       </g>
                     );
                   })}
                 </svg>
               </div>
 
-              {/* Spot Description Detail Box (Right) */}
-              <div className="w-full lg:w-[360px] flex flex-col justify-between bg-brand-surface border border-brand-surface-light/45 rounded-lg p-6 relative">
-                {/* Spot category info */}
+              {/* Spot Description Detail Box */}
+              <div className="w-full lg:w-[360px] flex flex-col justify-between bg-brand-surface border border-brand-surface-light/40 rounded-lg p-6 relative">
                 <div>
                   <div className="flex justify-between items-start mb-4">
-                    <span className="text-[9px] tracking-[0.25em] font-bold text-brand-earth uppercase bg-brand-earth/10 px-2 py-0.5 rounded select-none">
+                    <span className="text-[9px] tracking-[0.25em] font-bold text-brand-earth uppercase bg-brand-earth/10 px-2 py-0.5 rounded select-none flex items-center gap-1.5">
+                      <span>{TYPE_ICONS[selectedSpot.type] || '📍'}</span>
                       {selectedSpot.type}
                     </span>
                     <span className="text-xs font-mono text-brand-muted flex items-center gap-1">
@@ -287,26 +321,33 @@ const Station03_SettlingIn = () => {
                     </span>
                   </div>
 
-                  {/* Spot title */}
-                  <h3 className="text-2xl font-serif text-brand-cream mb-3 font-normal">
-                    {selectedSpot.name}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-brand-muted text-xs leading-relaxed font-light mb-6">
-                    {selectedSpot.description}
-                  </p>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={selectedSpot.id}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h3 className="text-2xl font-serif text-brand-cream mb-3 font-normal">
+                        {selectedSpot.name}
+                      </h3>
+                      <p className="text-brand-muted text-xs leading-relaxed font-light mb-6">
+                        {selectedSpot.description}
+                      </p>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
-                {/* Curator recommendation desk */}
-                <div className="border-t border-brand-surface-light/45 pt-4">
-                  <span className="text-[9px] tracking-[0.2em] font-semibold text-brand-muted uppercase block mb-1">
+                {/* Curator recommendation */}
+                <div className="border-t border-brand-surface-light/40 pt-4">
+                  <span className="text-[9px] tracking-[0.2em] font-semibold text-brand-muted uppercase block mb-1.5">
                     CURATOR'S NOTE
                   </span>
                   
                   {selectedSpot.id === 'emergency-med' ? (
                     <div className="flex items-center gap-2 text-brand-text font-medium text-xs bg-red-500/10 border border-red-500/20 p-2.5 rounded">
-                      <PhoneCall className="w-3.5 h-3.5 text-red-400" />
+                      <span className="text-red-400">📞</span>
                       <span className="font-mono text-red-300">{selectedSpot.recommendation}</span>
                     </div>
                   ) : (
@@ -314,6 +355,28 @@ const Station03_SettlingIn = () => {
                       "{selectedSpot.recommendation}"
                     </p>
                   )}
+                </div>
+
+                {/* Quick spot navigation — scrollable list */}
+                <div className="border-t border-brand-surface-light/40 pt-4 mt-4">
+                  <span className="text-[9px] tracking-[0.2em] font-semibold text-brand-muted uppercase block mb-2">
+                    ALL SPOTS
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {littleCorners.map((spot) => (
+                      <button
+                        key={spot.id}
+                        onClick={() => setSelectedSpot(spot)}
+                        className={`text-[9px] px-2 py-1 rounded transition-all duration-200 cursor-pointer ${
+                          selectedSpot.id === spot.id
+                            ? 'bg-brand-earth/20 text-brand-earth border border-brand-earth/30'
+                            : 'bg-brand-surface-light/30 text-brand-muted/70 border border-transparent hover:text-brand-text hover:border-brand-surface-light/60'
+                        }`}
+                      >
+                        {spot.name.length > 16 ? spot.name.substring(0, 16) + '…' : spot.name}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>

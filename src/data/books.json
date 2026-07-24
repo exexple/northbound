@@ -4,10 +4,15 @@
     "title": "The Room on the Roof",
     "author": "Ruskin Bond",
     "curatorNote": "Written by Ruskin when he was just seventeen, living in Dehradun. It captures the local streets, the dust, the heavy monsoon, and the intense, shifting friendships of youth.",
-    "whyFits": "It is the ultimate Dehradun coming-of-age story. It teaches you that a small room of one's own under the sloping roofs can be the center of the world.",
-    "pdfUrl": "/books/room-on-the-roof.pdf",
+    "whyFits": "It is the ultimate Dehradun coming-of-age story. A small room of one's own under the sloping roofs can be the centre of the world.",
+    "pdfUrl": "/assets/books/pdfs/room-on-the-roof.pdf",
     "coverBg": "linear-gradient(135deg, #2c3e50 0%, #0f2027 100%)",
-    "accentColor": "#a87c66"
+    "accentColor": "#a87c66",
+    "excerpt": [
+      "Rusty was a quiet boy who lived with his guardian, the missionary Mr. Harrison, in the European community of Dehra Dun. He felt isolated and constrained by the strict rules of his home, where he was forbidden to mix with the local Indian population down in the bazaar.",
+      "But one afternoon, during the hot, dusty days before the monsoon, Rusty broke the rules. He walked down into the bazaar. There he met Somi, a Sikh boy riding a bicycle, and Ranbir, a wrestler. In the crowded, chaotic streets filled with the scent of spices, hot tea, and frying pakoras, he felt alive for the very first time.",
+      "Somi found him a room to live in—a small room on the roof of a house belonging to the Kapoor family. It was a tiny room with a tin roof that rattled in the rain, but it had a window that looked out over the tree-tops and the distant blue hills."
+    ]
   },
   {
     "id": "rain-mountains",
@@ -15,9 +20,14 @@
     "author": "Ruskin Bond",
     "curatorNote": "A quiet collection of diary entries, essays, and poems about the rhythmic cycles of valley rains, mountain birds, and the slow growth of pine seedlings.",
     "whyFits": "Perfect for reading when it pours outside your hostel window. It teaches you to love the damp mist, the moss on the walls, and the quietness of the hills.",
-    "pdfUrl": "/books/rain-in-the-mountains.pdf",
+    "pdfUrl": "/assets/books/pdfs/rain-in-the-mountains.pdf",
     "coverBg": "linear-gradient(135deg, #1b4d3e 0%, #0d2b22 100%)",
-    "accentColor": "#ebdcb9"
+    "accentColor": "#ebdcb9",
+    "excerpt": [
+      "Rain in the hills is different from rain in the plains. It does not just fall; it settles in. It rolls up the valley in great banks of white mist, swallowing the trees and the houses until only the peak of the ridge remains.",
+      "The pine needles glisten with droplets, and the sound of water dripping from the tin roof is a steady, soothing rhythm. It is a time for hot ginger tea, for sitting by the fireplace with an old journal, and for listening to the wind sighing through the deodars.",
+      "The ferns and wild begonias grow thick on the stone walls, and the moss grows rich and green on the oak trees. To live in the hills is to live in close company with nature, where every rainstorm is a cleaning of the soul."
+    ]
   },
   {
     "id": "letters-poet",
@@ -25,8 +35,43 @@
     "author": "Rainer Maria Rilke",
     "curatorNote": "Ten letters written to an aspiring cadet about solitude, love, career choices, and the slow, internal process of growth. Elegant and incredibly profound.",
     "whyFits": "An essential companion for starting college. Rilke's words will remind you to 'be patient toward all that is unsolved in your heart' when things feel overwhelming.",
-    "pdfUrl": "/books/letters-to-a-young-poet.pdf",
+    "pdfUrl": "/assets/books/pdfs/letters-to-a-young-poet.pdf",
     "coverBg": "linear-gradient(135deg, #5c2c16 0%, #2b1107 100%)",
-    "accentColor": "#a87c66"
+    "accentColor": "#a87c66",
+    "excerpt": [
+      "You ask whether your verses are good. You ask me. You have asked others before. You send them to magazines. You compare them with other poems, and you are disturbed when certain editors reject your efforts. Now, I beg you to give up all that.",
+      "Go into yourself. Search for the reason that bids you write; find out whether it is spreading its roots in the deepest place of your heart.",
+      "Most of all, ask yourself in the most silent hour of your night: must I write? Build your life according to this necessity."
+    ]
+  },
+  {
+    "id": "night-train",
+    "title": "Night Train at Deoli",
+    "author": "Ruskin Bond",
+    "curatorNote": "A short story collection set in the trains and small stations of India. The title story is one of the most beautiful pieces of Indian short fiction — brief, haunting, and deeply atmospheric.",
+    "whyFits": "The train is how you'll arrive. These stories carry the same rhythm as the journey itself — moments glimpsed from a moving window.",
+    "pdfUrl": "/assets/books/pdfs/night-train-at-deoli.pdf",
+    "coverBg": "linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%)",
+    "accentColor": "#c4a882",
+    "excerpt": [
+      "I was travelling to Dehra Dun when the train stopped at a small station called Deoli. I had never heard of the place before and I was sure I'd never hear of it again.",
+      "A girl came down the platform, selling baskets. I saw her for only a few minutes, but her face stayed with me for years. She had a grace that was natural and effortless.",
+      "The train moved on. I never saw her again, but whenever I travel that line, I look out of the window at Deoli station, hoping."
+    ]
+  },
+  {
+    "id": "blue-umbrella",
+    "title": "The Blue Umbrella",
+    "author": "Ruskin Bond",
+    "curatorNote": "A gentle fable about a village girl in the hills who finds a beautiful blue umbrella. A story about desire, envy, generosity, and the small economies of mountain towns.",
+    "whyFits": "Short, charming, and set in the hills you'll be living in. You could read it in a single evening on a rainy night.",
+    "pdfUrl": "/assets/books/pdfs/the-blue-umbrella.pdf",
+    "coverBg": "linear-gradient(135deg, #1e3a5f 0%, #0c1929 100%)",
+    "accentColor": "#7ba7d1",
+    "excerpt": [
+      "Binya was a girl who lived with her mother and an elder brother in a little village above Doiwara. She had two goats, a black one and a brown one, and she took them out to graze on the hillside.",
+      "The umbrella was like a flower, a great blue flower that had sprung up on the bare hillside. She had never seen anything so beautiful.",
+      "She held the umbrella aloft and ran down the slope, spinning it around as she ran. The villagers looked up at her and smiled."
+    ]
   }
 ]

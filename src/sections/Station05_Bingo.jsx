@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import StationWrapper from '../components/StationWrapper';
 import bingoItems from '../data/bingo';
@@ -6,76 +6,94 @@ import { RotateCcw } from 'lucide-react';
 
 const Station05_Bingo = () => {
   const [stamped, setStamped] = useState({});
+  const [lastStamped, setLastStamped] = useState(null);
 
-  // Load from localStorage
   useEffect(() => {
     const saved = localStorage.getItem('northbound_bingo_board');
     if (saved) {
       setStamped(JSON.parse(saved));
     } else {
-      // Stamp the center square (index 12 in 0-indexed list) as a free space by default
       const initial = { 12: true };
       setStamped(initial);
       localStorage.setItem('northbound_bingo_board', JSON.stringify(initial));
     }
   }, []);
 
-  const handleTileClick = (index) => {
-    if (index === 12) return; // Center "Free Space" is always checked
+  const handleTileClick = useCallback((index) => {
+    if (index === 12) return;
     
     const updated = { ...stamped, [index]: !stamped[index] };
     setStamped(updated);
+    setLastStamped(!stamped[index] ? index : null);
     localStorage.setItem('northbound_bingo_board', JSON.stringify(updated));
-  };
+  }, [stamped]);
 
-  const resetBoard = () => {
+  const resetBoard = useCallback(() => {
     const initial = { 12: true };
     setStamped(initial);
+    setLastStamped(null);
     localStorage.setItem('northbound_bingo_board', JSON.stringify(initial));
-  };
+  }, []);
 
-  // Build grid: indices 0-24
-  // We modify index 12 to be the custom "Free Space: Bound North"
   const getTileText = (index) => {
-    if (index === 12) return "FREE SPACE: BOUND NORTH";
+    if (index === 12) return "FREE SPACE";
     return bingoItems[index];
   };
+
+  const stampedCount = Object.values(stamped).filter(Boolean).length;
 
   return (
     <StationWrapper
       id="bingo"
       stationNumber="05"
       title="Freshman Bingo"
-      subtitle="A checklist of moments waiting for you in the hills"
+      subtitle="Moments waiting for you in the hills"
     >
       <div className="max-w-xl w-full mx-auto">
-        <p className="text-brand-muted text-xs font-light leading-relaxed mb-6 text-center max-w-sm mx-auto">
-          Tap items as you experience them during your first semester. Your progress will be saved automatically.
+        <p className="text-brand-muted text-xs font-light leading-relaxed mb-4 text-center max-w-sm mx-auto">
+          Tap items as you experience them. Your progress is saved automatically.
         </p>
 
+        {/* Progress indicator */}
+        <div className="flex items-center justify-center gap-2 mb-6 text-[10px] text-brand-muted select-none">
+          <span className="font-mono text-brand-earth font-bold">{stampedCount}/25</span>
+          <span>stamped</span>
+          <div className="w-20 h-1 bg-brand-surface-light rounded-full overflow-hidden">
+            <div
+              className="h-full bg-brand-earth rounded-full transition-all duration-500"
+              style={{ width: `${(stampedCount / 25) * 100}%` }}
+            />
+          </div>
+        </div>
+
         {/* 5x5 Bingo Grid */}
-        <div className="grid grid-cols-5 gap-2 md:gap-3 aspect-square w-full bg-brand-surface border border-brand-surface-light/45 p-3 rounded-lg shadow-xl relative">
+        <div className="grid grid-cols-5 gap-1.5 md:gap-2.5 aspect-square w-full bg-brand-surface border border-brand-surface-light/40 p-3 rounded-lg shadow-xl shadow-black/30 relative">
+          {/* Paper texture */}
+          <div className="absolute inset-0 paper-texture pointer-events-none rounded-lg" />
+
           {Array.from({ length: 25 }).map((_, index) => {
             const isStamped = !!stamped[index];
             const isCenter = index === 12;
+            const isJustStamped = lastStamped === index;
             
             return (
               <button
                 key={index}
                 onClick={() => handleTileClick(index)}
-                className={`relative flex items-center justify-center p-1.5 md:p-3 rounded text-center overflow-hidden transition-all duration-300 outline-none select-none cursor-pointer border ${
+                className={`relative flex items-center justify-center p-1 md:p-2.5 rounded text-center overflow-hidden transition-all duration-300 outline-none select-none cursor-pointer border ${
                   isCenter
-                    ? 'bg-brand-surface-light/40 border-brand-earth/30 text-brand-earth font-semibold'
+                    ? 'bg-brand-earth/10 border-brand-earth/25 text-brand-earth font-semibold'
                     : isStamped
-                    ? 'bg-brand-surface-light/20 border-brand-surface-light/80 text-brand-muted/75'
-                    : 'bg-brand-bg/40 border-brand-surface-light/40 hover:border-brand-earth/30 text-brand-text'
+                    ? 'bg-brand-surface-light/15 border-brand-surface-light/60 text-brand-muted/60'
+                    : 'bg-brand-bg/40 border-brand-surface-light/30 hover:border-brand-earth/25 text-brand-text'
                 }`}
-                style={{
-                  height: '100%',
-                }}
               >
                 {/* Tile Text */}
-                <span className={`text-[8px] md:text-[10px] leading-tight font-sans tracking-wide ${isCenter ? 'font-serif tracking-widest text-[9px] md:text-xs' : 'font-light'}`}>
+                <span className={`text-[7px] md:text-[10px] leading-tight tracking-wide ${
+                  isCenter 
+                    ? 'font-serif tracking-widest text-[8px] md:text-xs' 
+                    : 'font-light'
+                }`}>
                   {getTileText(index)}
                 </span>
 
@@ -83,40 +101,39 @@ const Station05_Bingo = () => {
                 <AnimatePresence>
                   {isStamped && (
                     <motion.div
-                      initial={{ scale: 2, opacity: 0, rotate: -45 }}
-                      animate={{ scale: 1, opacity: 1, rotate: index * 13 % 20 - 10 }} // pseudo-random rotation
-                      exit={{ scale: 0.8, opacity: 0 }}
-                      transition={{ type: 'spring', stiffness: 220, damping: 15 }}
-                      className="absolute inset-0 flex items-center justify-center pointer-events-none select-none p-1.5"
+                      initial={isJustStamped ? { scale: 2.5, opacity: 0, rotate: -30 } : { scale: 1, opacity: 1, rotate: (index * 13) % 20 - 10 }}
+                      animate={{ scale: 1, opacity: 1, rotate: (index * 13) % 20 - 10 }}
+                      exit={{ scale: 0.5, opacity: 0 }}
+                      transition={isJustStamped ? { type: 'spring', stiffness: 200, damping: 12 } : { duration: 0 }}
+                      className="absolute inset-0 flex items-center justify-center pointer-events-none select-none p-1"
                     >
-                      {/* Stylized organic ink stamp (looks like rubber stamp) */}
                       <svg 
-                        className={`w-full h-full stroke-[2] ${isCenter ? 'text-brand-earth/30' : 'text-brand-earth/70'}`}
+                        className={`w-full h-full ${isCenter ? 'text-brand-earth/20' : 'text-brand-earth/50'}`}
                         viewBox="0 0 100 100" 
                         fill="none"
                       >
-                        <circle cx="50" cy="50" r="35" stroke="currentColor" strokeDasharray="5,2" />
-                        <path d="M 25,50 L 75,50" stroke="currentColor" strokeWidth="1.5" />
+                        <circle cx="50" cy="50" r="32" stroke="currentColor" strokeWidth="2" strokeDasharray="6,3" />
                         <text 
                           x="50" 
-                          y="42" 
+                          y="44" 
                           textAnchor="middle" 
                           fill="currentColor" 
-                          fontSize="10" 
+                          fontSize="11" 
                           fontWeight="bold" 
-                          letterSpacing="1"
+                          letterSpacing="1.5"
                           stroke="none"
                         >
                           DEHRA
                         </text>
+                        <line x1="28" y1="50" x2="72" y2="50" stroke="currentColor" strokeWidth="1" />
                         <text 
                           x="50" 
-                          y="62" 
+                          y="64" 
                           textAnchor="middle" 
                           fill="currentColor" 
                           fontSize="9" 
                           fontWeight="bold" 
-                          letterSpacing="2"
+                          letterSpacing="2.5"
                           stroke="none"
                         >
                           PASSED
@@ -145,4 +162,4 @@ const Station05_Bingo = () => {
   );
 };
 
-export default Station05_Bingo;
+export default React.memo(Station05_Bingo);

@@ -4,4 +4,4 @@ const GrainOverlay = () => {
   return <div className="noise-bg" aria-hidden="true" />;
 };
 
-export default GrainOverlay;
+export default React.memo(GrainOverlay);

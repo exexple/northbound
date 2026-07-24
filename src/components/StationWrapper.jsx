@@ -5,8 +5,11 @@ const StationWrapper = ({ id, stationNumber, title, subtitle, children, classNam
   return (
     <section
       id={id}
-      className={`min-h-screen py-24 lg:py-32 flex flex-col justify-center border-b border-brand-surface-light/30 relative ${className}`}
+      className={`min-h-screen py-24 lg:py-32 flex flex-col justify-center relative ${className}`}
     >
+      {/* Atmospheric section divider */}
+      <div className="station-divider absolute top-0 left-0 w-full" />
+
       {/* Editorial Station Header */}
       <div className="max-w-4xl mx-auto w-full px-6 mb-12 lg:mb-16 select-none">
         <motion.div
@@ -17,8 +20,8 @@ const StationWrapper = ({ id, stationNumber, title, subtitle, children, classNam
           className="flex items-center gap-4 text-xs tracking-[0.25em] font-medium"
         >
           <span className="text-brand-earth font-semibold font-sans uppercase">STATION {stationNumber}</span>
-          <div className="h-[1px] flex-1 bg-brand-surface-light" />
-          <span className="text-brand-cream/80 font-serif italic text-sm">{subtitle}</span>
+          <div className="h-[1px] flex-1 bg-gradient-to-r from-brand-surface-light via-brand-surface-light/60 to-transparent" />
+          <span className="text-brand-cream/70 font-serif italic text-sm">{subtitle}</span>
         </motion.div>
         
         {title && (
@@ -48,4 +51,4 @@ const StationWrapper = ({ id, stationNumber, title, subtitle, children, classNam
   );
 };
 
-export default StationWrapper;
+export default React.memo(StationWrapper);

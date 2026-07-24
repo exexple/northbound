@@ -1,14 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Compass } from 'lucide-react';
 
 const Station01_Arrival = ({ onStartJourney }) => {
   return (
     <section
       id="arrival"
-      className="min-h-screen relative flex flex-col justify-center items-center overflow-hidden px-6 py-20 border-b border-brand-surface-light/30"
+      className="min-h-screen relative flex flex-col justify-center items-center overflow-hidden px-6 py-20"
     >
-      {/* Cinematic Background Light & Fog */}
+      {/* Cinematic Background — layered fog and atmospheric light */}
       <div className="absolute inset-0 bg-[#070708] z-0 pointer-events-none">
         {/* Glowing Rail Line Energy (SVG lines fading into the distance) */}
         <svg className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] opacity-[0.06] text-brand-earth" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -19,43 +18,55 @@ const Station01_Arrival = ({ onStartJourney }) => {
           <path d="M 50,100 L 50,0" stroke="currentColor" strokeWidth="0.1" strokeDasharray="2,2" />
         </svg>
 
-        {/* Slow Ambient Floating Fog Layers (Framer Motion) */}
-        <motion.div
-          className="glow-effect w-[600px] h-[300px] bg-brand-earth/10 top-1/4 left-[-100px]"
-          animate={{
-            x: [0, 80, -20, 0],
-            y: [0, 30, -10, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
+        {/* CSS-animated ambient fog layers — performant, no JS */}
+        <div
+          className="absolute w-[500px] h-[250px] rounded-full top-1/4 left-[-100px] opacity-[0.06] blur-[80px]"
+          style={{
+            background: 'radial-gradient(ellipse, rgba(168, 124, 102, 0.4), transparent)',
+            animation: 'ambient-float 25s ease-in-out infinite',
           }}
         />
-        <motion.div
-          className="glow-effect w-[500px] h-[250px] bg-brand-cream/5 bottom-1/4 right-[-100px]"
-          animate={{
-            x: [0, -60, 40, 0],
-            y: [0, -40, 20, 0],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut"
+        <div
+          className="absolute w-[400px] h-[200px] rounded-full bottom-1/4 right-[-80px] opacity-[0.04] blur-[80px]"
+          style={{
+            background: 'radial-gradient(ellipse, rgba(235, 220, 185, 0.3), transparent)',
+            animation: 'ambient-float 30s ease-in-out infinite reverse',
           }}
         />
+        <div
+          className="absolute w-[300px] h-[300px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] blur-[100px]"
+          style={{
+            background: 'radial-gradient(ellipse, rgba(168, 124, 102, 0.3), transparent)',
+            animation: 'ambient-drift 20s ease-in-out infinite',
+          }}
+        />
+
+        {/* Subtle twinkling stars / particles */}
+        <div className="absolute top-[15%] left-[20%] w-1 h-1 rounded-full bg-brand-cream/20" style={{ animation: 'twinkle 4s ease-in-out infinite' }} />
+        <div className="absolute top-[25%] right-[30%] w-0.5 h-0.5 rounded-full bg-brand-cream/15" style={{ animation: 'twinkle 5s ease-in-out infinite 1s' }} />
+        <div className="absolute top-[10%] right-[15%] w-1 h-1 rounded-full bg-brand-cream/10" style={{ animation: 'twinkle 6s ease-in-out infinite 2s' }} />
+        <div className="absolute top-[30%] left-[40%] w-0.5 h-0.5 rounded-full bg-brand-cream/20" style={{ animation: 'twinkle 4.5s ease-in-out infinite 0.5s' }} />
       </div>
 
       {/* Hero Content */}
-      <div className="max-w-2xl mx-auto text-center z-10 flex flex-col items-center">
-        {/* Soft, premium brand header */}
+      <div className="max-w-2xl mx-auto text-center z-10 flex flex-col items-center" style={{ perspective: '1000px' }}>
+        {/* Soft compass icon */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-8 p-3 rounded-full border border-brand-earth/20 bg-brand-surface/40 backdrop-blur-md"
+          className="mb-8 relative"
         >
-          <Compass className="w-5 h-5 text-brand-earth animate-spin-slow" />
+          <div className="w-12 h-12 rounded-full border border-brand-earth/20 bg-brand-surface/30 backdrop-blur-sm flex items-center justify-center shadow-lg shadow-brand-earth/5">
+            <svg className="w-5 h-5 text-brand-earth animate-spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88" fill="currentColor" opacity="0.3" />
+              <line x1="12" y1="2" x2="12" y2="6" />
+              <line x1="12" y1="18" x2="12" y2="22" />
+              <line x1="2" y1="12" x2="6" y2="12" />
+              <line x1="18" y1="12" x2="22" y2="12" />
+            </svg>
+          </div>
         </motion.div>
 
         {/* Title */}
@@ -68,18 +79,18 @@ const Station01_Arrival = ({ onStartJourney }) => {
           Northbound
         </motion.h1>
 
-        {/* Poetic description */}
+        {/* Poetic description — warmer, more intimate */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="text-brand-muted font-light text-base md:text-lg leading-relaxed max-w-lg mb-12"
+          className="text-brand-muted font-light text-base md:text-lg leading-relaxed max-w-md mb-12"
         >
           <p className="mb-4">
-            A digital companion for a new chapter in the valley.
+            A small, curated companion for the next chapter.
           </p>
-          <p className="text-sm italic font-serif text-brand-cream/70">
-            The train rolls out of the plains. As the tracks begin to climb, the air grows cooler, smelling of rain and fresh pine.
+          <p className="text-sm italic font-serif text-brand-cream/60">
+            The tracks begin to climb. The air grows cooler, smelling of pine and the first rain of the valley.
           </p>
         </motion.div>
 
@@ -105,23 +116,20 @@ const Station01_Arrival = ({ onStartJourney }) => {
       </div>
 
       {/* Soft Scroll Down Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 0.4, 0] }}
-        transition={{ delay: 1.5, duration: 2.5, repeat: Infinity }}
+      <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 select-none pointer-events-none"
+        style={{ animation: 'gentle-pulse 3s ease-in-out infinite' }}
       >
-        <span className="text-[10px] tracking-[0.3em] uppercase text-brand-muted">Scroll</span>
-        <div className="w-[1px] h-8 bg-brand-muted/30 relative overflow-hidden">
-          <motion.div
-            className="absolute top-0 left-0 w-full h-1/2 bg-brand-earth"
-            animate={{ y: ['0%', '200%'] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        <span className="text-[10px] tracking-[0.3em] uppercase text-brand-muted/50">Scroll</span>
+        <div className="w-[1px] h-8 bg-brand-muted/20 relative overflow-hidden">
+          <div
+            className="absolute top-0 left-0 w-full h-1/2 bg-brand-earth/60"
+            style={{ animation: 'ambient-drift 2s ease-in-out infinite alternate' }}
           />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
 
-export default Station01_Arrival;
+export default React.memo(Station01_Arrival);

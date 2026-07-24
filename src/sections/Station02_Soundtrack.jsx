@@ -1,29 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useRef, memo } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import StationWrapper from '../components/StationWrapper';
 import playlists from '../data/playlists';
 import { Music, Play } from 'lucide-react';
 
-const PlaylistCard = ({ playlist }) => {
+const PlaylistCard = memo(({ playlist }) => {
   const cardRef = useRef(null);
   
-  // Custom 3D Tilt Effect
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   
   const mouseSpringConfig = { damping: 25, stiffness: 200, mass: 0.5 };
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [10, -10]), mouseSpringConfig);
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-10, 10]), mouseSpringConfig);
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), mouseSpringConfig);
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), mouseSpringConfig);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left - width / 2;
-    const mouseY = e.clientY - rect.top - height / 2;
-    x.set(mouseX / width);
-    y.set(mouseY / height);
+    x.set((e.clientX - rect.left - rect.width / 2) / rect.width);
+    y.set((e.clientY - rect.top - rect.height / 2) / rect.height);
   };
 
   const handleMouseLeave = () => {
@@ -43,11 +38,11 @@ const PlaylistCard = ({ playlist }) => {
       }}
       whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-      className="bg-brand-surface border border-brand-surface-light/40 hover:border-brand-earth/50 p-6 rounded-lg relative overflow-hidden flex flex-col justify-between h-[360px] shadow-xl group transition-colors duration-500 cursor-pointer"
+      className="bg-brand-surface border border-brand-surface-light/40 hover:border-brand-earth/40 p-6 rounded-lg relative overflow-hidden flex flex-col justify-between h-[360px] shadow-xl shadow-black/30 group transition-colors duration-500 cursor-pointer"
     >
-      {/* Subtle glowing sphere inside the card */}
+      {/* Subtle glowing sphere */}
       <div
-        className="absolute top-0 right-0 w-32 h-32 blur-[50px] opacity-15 rounded-full pointer-events-none transition-colors duration-500 group-hover:opacity-25"
+        className="absolute top-0 right-0 w-28 h-28 blur-[50px] opacity-10 rounded-full pointer-events-none transition-opacity duration-500 group-hover:opacity-20"
         style={{ backgroundColor: playlist.themeColor }}
       />
 
@@ -57,7 +52,7 @@ const PlaylistCard = ({ playlist }) => {
           <span className="text-[10px] tracking-[0.2em] uppercase font-semibold font-sans text-brand-muted group-hover:text-brand-earth transition-colors duration-300">
             SOUNDSCAPE
           </span>
-          <Music className="w-4 h-4 text-brand-muted/65 group-hover:text-brand-earth transition-colors duration-300" />
+          <Music className="w-4 h-4 text-brand-muted/50 group-hover:text-brand-earth transition-colors duration-300" />
         </div>
 
         {/* Title */}
@@ -70,7 +65,7 @@ const PlaylistCard = ({ playlist }) => {
           {playlist.description}
         </p>
 
-        {/* Simulated Track Preview list */}
+        {/* Track Preview list */}
         <div className="space-y-2 border-t border-brand-surface-light/35 pt-4">
           {playlist.songs.map((song, i) => (
             <div key={i} className="flex items-center gap-2 text-[10px] font-mono text-brand-muted/70">
@@ -86,11 +81,11 @@ const PlaylistCard = ({ playlist }) => {
         className="flex items-center justify-between mt-6 w-full"
         style={{ transform: 'translateZ(15px)' }}
       >
-        {/* Soft floating equalizer bars (visual-only effect) */}
+        {/* Soft floating equalizer bars */}
         <div className="flex items-end gap-0.5 h-3">
-          <div className="w-0.5 h-2 bg-brand-earth/40 group-hover:h-3 transition-all duration-300 group-hover:animate-[pulse_1.2s_infinite]" />
-          <div className="w-0.5 h-3 bg-brand-earth/60 group-hover:h-1 transition-all duration-300 group-hover:animate-[pulse_1.5s_infinite_delay-200]" />
-          <div className="w-0.5 h-1.5 bg-brand-earth/30 group-hover:h-2 transition-all duration-300 group-hover:animate-[pulse_1s_infinite_delay-500]" />
+          <div className="w-0.5 bg-brand-earth/30 group-hover:bg-brand-earth/60 transition-all duration-300" style={{ height: '8px', animation: 'gentle-pulse 1.5s ease-in-out infinite' }} />
+          <div className="w-0.5 bg-brand-earth/40 group-hover:bg-brand-earth/70 transition-all duration-300" style={{ height: '12px', animation: 'gentle-pulse 1.2s ease-in-out infinite 0.2s' }} />
+          <div className="w-0.5 bg-brand-earth/25 group-hover:bg-brand-earth/50 transition-all duration-300" style={{ height: '6px', animation: 'gentle-pulse 1.8s ease-in-out infinite 0.5s' }} />
         </div>
 
         {/* Listen Button */}
@@ -98,8 +93,8 @@ const PlaylistCard = ({ playlist }) => {
           href={playlist.spotifyUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()} // Prevent card click conflict
-          className="flex items-center gap-2 px-4 py-2 bg-brand-surface-light/60 hover:bg-brand-earth hover:text-brand-bg border border-brand-surface-light text-brand-text text-[10px] tracking-widest uppercase font-medium rounded transition-all duration-300"
+          onClick={(e) => e.stopPropagation()}
+          className="flex items-center gap-2 px-4 py-2 bg-brand-surface-light/50 hover:bg-brand-earth hover:text-brand-bg border border-brand-surface-light/60 text-brand-text text-[10px] tracking-widest uppercase font-medium rounded transition-all duration-300"
         >
           <Play className="w-3 h-3 fill-current" />
           Spotify
@@ -107,7 +102,7 @@ const PlaylistCard = ({ playlist }) => {
       </div>
     </motion.div>
   );
-};
+});
 
 const Station02_Soundtrack = () => {
   return (
@@ -115,12 +110,11 @@ const Station02_Soundtrack = () => {
       id="soundtrack"
       stationNumber="02"
       title="Soundtrack"
-      subtitle="Selected moods for the room and route"
+      subtitle="Moods for the room and the road"
     >
       <div className="max-w-4xl w-full">
-        {/* Curated list introduction text */}
         <p className="text-brand-muted font-light text-sm leading-relaxed mb-8 max-w-xl">
-          Music carries the texture of a place. These playlists are curated to capture the shifting seasons of the valley — from morning mists to rainy afternoons.
+          Music carries the texture of a place. These playlists are curated to match the shifting seasons of the valley — misty mornings, rainy afternoons, quiet nights.
         </p>
 
         {/* Grid Container */}
@@ -134,4 +128,4 @@ const Station02_Soundtrack = () => {
   );
 };
 
-export default Station02_Soundtrack;
+export default React.memo(Station02_Soundtrack);
