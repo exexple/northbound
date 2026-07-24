@@ -38,7 +38,7 @@ const PlaylistCard = memo(({ playlist }) => {
       }}
       whileHover={{ y: -8, scale: 1.01 }}
       transition={{ type: 'spring', stiffness: 350, damping: 25 }}
-      className="glass-panel p-6 md:p-7 rounded-xl relative overflow-hidden flex flex-col justify-between h-[380px] group transition-all duration-500 cursor-pointer select-none"
+      className="glass-panel p-6 md:p-7 rounded-xl relative overflow-hidden flex flex-col justify-between h-[400px] group transition-all duration-500 cursor-pointer select-none"
     >
       {/* Subtle glowing color sphere */}
       <div

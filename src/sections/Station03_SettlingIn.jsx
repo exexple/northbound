@@ -7,18 +7,18 @@ import { Check, MapPin, Sparkles, Navigation } from 'lucide-react';
 
 // Map node positions for SVG schematic map (viewBox 600x450)
 const MAP_NODES = {
-  'book-depot': { x: 300, y: 220, color: '#a87c66' },
-  'pine-tea': { x: 420, y: 80, color: '#ebdcb9' },
-  'canal-walk': { x: 370, y: 160, color: '#ebdcb9' },
-  'elloras': { x: 280, y: 260, color: '#a87c66' },
-  'fri-lawns': { x: 130, y: 260, color: '#ebdcb9' },
-  'daias-cafe': { x: 340, y: 195, color: '#c4a882' },
-  'blue-tokai': { x: 320, y: 175, color: '#7ba7d1' },
-  'silent-bakery': { x: 160, y: 340, color: '#ebdcb9' },
-  'crossword': { x: 450, y: 280, color: '#a87c66' },
-  'mdda-park': { x: 380, y: 230, color: '#6b9e6b' },
-  'deer-park': { x: 460, y: 120, color: '#6b9e6b' },
-  'emergency-med': { x: 350, y: 200, color: '#e06060' }
+  'book-depot': { x: 300, y: 220, color: '#aa8069' },
+  'pine-tea': { x: 420, y: 80, color: '#eee0c4' },
+  'canal-walk': { x: 370, y: 160, color: '#eee0c4' },
+  'elloras': { x: 280, y: 260, color: '#aa8069' },
+  'fri-lawns': { x: 130, y: 260, color: '#eee0c4' },
+  'daias-cafe': { x: 340, y: 195, color: '#c8ab86' },
+  'blue-tokai': { x: 320, y: 175, color: '#85a4c4' },
+  'silent-bakery': { x: 160, y: 340, color: '#eee0c4' },
+  'crossword': { x: 450, y: 280, color: '#aa8069' },
+  'mdda-park': { x: 380, y: 230, color: '#7ba67b' },
+  'deer-park': { x: 460, y: 120, color: '#7ba67b' },
+  'emergency-med': { x: 350, y: 200, color: '#e26b6b' }
 };
 
 // Category icon mapping

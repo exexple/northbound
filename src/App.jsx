@@ -94,6 +94,9 @@ const App = () => {
       {/* Paper Grain Overlay */}
       <GrainOverlay />
 
+      {/* Ambient Screen Vignette Overlay */}
+      <div className="vignette-overlay" />
+
       {/* Lagging Spring Cursor */}
       <CustomCursor />
 

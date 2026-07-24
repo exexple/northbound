@@ -121,7 +121,7 @@ const Station08_OpenWhen = () => {
                 </div>
 
                 {/* Suggested Action */}
-                <div className="bg-[#ebdcb9]/40 border border-[#d8c59c] rounded-lg p-4 text-stone-900 relative z-10">
+                <div className="bg-[#eee0c4]/40 border border-[#dccaa0] rounded-lg p-4 text-stone-900 relative z-10">
                   <div className="flex items-center gap-1.5 text-[9px] font-sans font-bold text-stone-700 uppercase tracking-widest mb-1.5">
                     <Check className="w-3.5 h-3.5 text-brand-earth stroke-[3]" />
                     A Small Ritual
