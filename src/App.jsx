@@ -105,25 +105,25 @@ const App = () => {
             initial={{ opacity: 1 }}
             exit={{ y: '-100vh', opacity: 0 }}
             transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 bg-[#0a0a0b] z-50 flex flex-col items-center justify-center p-6 select-none"
+            className="fixed inset-0 bg-[#070709] z-50 flex flex-col items-center justify-center p-6 select-none"
           >
             {/* Ambient glow behind the board */}
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-brand-earth/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-brand-earth/10 rounded-full blur-[120px] pointer-events-none" />
 
             {/* The Flap Board Box */}
-            <div className="w-full max-w-lg bg-[#111216] border border-brand-surface-light/60 p-6 md:p-8 rounded-lg shadow-2xl relative">
-              <div className="absolute top-4 left-6 flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-brand-earth animate-pulse" />
-                <span className="text-[8px] font-sans tracking-[0.25em] font-bold text-brand-muted uppercase">
-                  DEPARTURE CONTROL
+            <div className="w-full max-w-lg glass-panel p-6 md:p-8 rounded-2xl shadow-2xl relative border border-brand-earth/30">
+              <div className="absolute top-4 left-6 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-brand-earth animate-pulse shadow-[0_0_6px_#a87c66]" />
+                <span className="text-[9px] font-mono tracking-[0.3em] font-bold text-brand-earth uppercase">
+                  DEPARTURE CONTROL • EXPRESS 01
                 </span>
               </div>
 
               {/* Split Flap Lines Container */}
-              <div className="space-y-5 mt-6">
+              <div className="space-y-5 mt-7">
                 {/* Line 1: Service */}
                 <div className="flex justify-between items-center gap-4">
-                  <span className="text-[10px] font-mono text-brand-muted/70 tracking-widest uppercase w-20">SERVICE</span>
+                  <span className="text-[10px] font-mono text-brand-muted tracking-widest uppercase w-20 font-semibold">SERVICE</span>
                   <div className="flex gap-0.5">
                     {loadStep >= 0 && "NORTHBOUND".split("").map((c, i) => (
                       <FlapChar key={`s-${i}`} char={c} delay={i} />
@@ -133,7 +133,7 @@ const App = () => {
 
                 {/* Line 2: Route Destination */}
                 <div className="flex justify-between items-center gap-4">
-                  <span className="text-[10px] font-mono text-brand-muted/70 tracking-widest uppercase w-20">DEST</span>
+                  <span className="text-[10px] font-mono text-brand-muted tracking-widest uppercase w-20 font-semibold">DEST</span>
                   <div className="flex gap-0.5">
                     {loadStep >= 1 ? (
                       "DEHRADUN".split("").map((c, i) => (
@@ -149,7 +149,7 @@ const App = () => {
 
                 {/* Line 3: Dep Date */}
                 <div className="flex justify-between items-center gap-4">
-                  <span className="text-[10px] font-mono text-brand-muted/70 tracking-widest uppercase w-20">DEPART</span>
+                  <span className="text-[10px] font-mono text-brand-muted tracking-widest uppercase w-20 font-semibold">DEPART</span>
                   <div className="flex gap-0.5">
                     {loadStep >= 2 ? (
                       "LATEJULY".split("").map((c, i) => (
@@ -165,7 +165,7 @@ const App = () => {
 
                 {/* Line 4: System status */}
                 <div className="flex justify-between items-center gap-4">
-                  <span className="text-[10px] font-mono text-brand-muted/70 tracking-widest uppercase w-20">STATUS</span>
+                  <span className="text-[10px] font-mono text-brand-muted tracking-widest uppercase w-20 font-semibold">STATUS</span>
                   <div className="flex gap-0.5">
                     {loadStep >= 3 ? (
                       "BOARDING".split("").map((c, i) => (
@@ -194,7 +194,7 @@ const App = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     onClick={handleStartJourney}
-                    className="px-8 py-3.5 bg-brand-surface border border-brand-earth/30 hover:border-brand-earth text-brand-text text-xs tracking-[0.2em] uppercase font-medium rounded transition-all duration-300 cursor-pointer shadow-lg hover:shadow-brand-earth/10"
+                    className="px-9 py-4 bg-brand-surface border border-brand-earth/40 hover:border-brand-earth text-brand-cream text-xs tracking-[0.25em] uppercase font-bold rounded-md transition-all duration-300 cursor-pointer shadow-xl shadow-black/40 hover:shadow-brand-earth/20"
                   >
                     Enter Platform
                   </motion.button>
@@ -202,7 +202,7 @@ const App = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="text-[10px] text-brand-muted/50 font-serif italic"
+                    className="text-[11px] text-brand-cream/60 font-serif italic"
                   >
                     a small world, made for this moment
                   </motion.span>

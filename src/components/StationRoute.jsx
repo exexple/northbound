@@ -38,7 +38,7 @@ const StationRoute = () => {
         if (stationEl) {
           const rect = stationEl.getBoundingClientRect();
           const absoluteTop = rect.top + window.scrollY;
-          if (viewCenter >= absoluteTop - 100) {
+          if (viewCenter >= absoluteTop - 120) {
             setActiveStation(STATIONS[i].id);
             break;
           }
@@ -66,21 +66,21 @@ const StationRoute = () => {
 
   return (
     <>
-      {/* Desktop Left Rail Route (Visible above 1024px) */}
-      <div className="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col items-center z-40 h-[60vh] select-none">
+      {/* Desktop Left Rail Route Tracker (Visible above 1024px) */}
+      <div className="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col items-center z-40 h-[62vh] select-none">
         {/* Track Line */}
-        <div className="absolute w-[2px] h-full bg-brand-surface-light rounded">
-          {/* Progress fill */}
+        <div className="absolute w-[2px] h-full bg-brand-surface-light/80 rounded">
+          {/* Glowing Progress fill */}
           <div
-            className="absolute top-0 w-full bg-brand-earth rounded transition-[height] duration-100 ease-out"
+            className="absolute top-0 w-full bg-gradient-to-b from-brand-earth via-brand-cream to-brand-earth rounded transition-[height] duration-100 ease-out shadow-[0_0_8px_rgba(168,124,102,0.6)]"
             style={{ height: `${scrollProgress * 100}%` }}
           />
           {/* Glowing Train Icon tracking progress */}
           <div
-            className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-brand-earth border-2 border-brand-bg rounded-full shadow-[0_0_8px_#a87c66] transition-[top] duration-100 ease-out"
-            style={{ top: `calc(${scrollProgress * 100}% - 7px)` }}
+            className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand-earth border-2 border-brand-bg rounded-full shadow-[0_0_10px_#a87c66] transition-[top] duration-100 ease-out flex items-center justify-center"
+            style={{ top: `calc(${scrollProgress * 100}% - 8px)` }}
           >
-            <div className="w-1 h-1 bg-brand-cream rounded-full mx-auto mt-[3px] animate-pulse" />
+            <div className="w-1.5 h-1.5 bg-brand-cream rounded-full animate-pulse" />
           </div>
         </div>
 
@@ -97,17 +97,17 @@ const StationRoute = () => {
               >
                 {/* Node Dot */}
                 <div
-                  className={`w-2.5 h-2.5 rounded-full border-2 transition-all duration-300 ${
+                  className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
                     isActive
-                      ? 'bg-brand-bg border-brand-earth scale-125 shadow-[0_0_6px_#a87c66]'
-                      : 'bg-brand-surface-light border-brand-muted/40 group-hover:border-brand-earth/80'
+                      ? 'bg-brand-bg border-brand-earth scale-125 shadow-[0_0_8px_#a87c66]'
+                      : 'bg-brand-surface-light border-brand-muted/40 group-hover:border-brand-earth/80 group-hover:scale-110'
                   }`}
                 />
                 
-                {/* Tooltip text */}
-                <div className="absolute left-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 whitespace-nowrap glass-surface px-3 py-1.5 rounded shadow-xl text-xs font-medium">
-                  <span className="text-brand-earth font-serif">{station.label}</span>
-                  <span className="text-brand-text">{station.title}</span>
+                {/* Tooltip paper tag */}
+                <div className="absolute left-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-2 whitespace-nowrap glass-panel px-3 py-1.5 rounded-md shadow-2xl text-xs font-medium border border-brand-earth/25">
+                  <span className="text-brand-earth font-mono font-bold text-[10px]">{station.label}</span>
+                  <span className="text-brand-cream font-serif">{station.title}</span>
                 </div>
               </button>
             );
@@ -116,25 +116,25 @@ const StationRoute = () => {
       </div>
 
       {/* Mobile Top Horizontal Subway Route (Visible under 1024px) */}
-      <div className="lg:hidden fixed top-0 left-0 w-full bg-brand-bg/90 border-b border-brand-surface-light/30 backdrop-blur-md z-40 py-3 px-4 flex items-center justify-between select-none">
+      <div className="lg:hidden fixed top-0 left-0 w-full bg-brand-bg/95 border-b border-brand-surface-light/40 backdrop-blur-md z-40 py-3 px-4 flex items-center justify-between select-none shadow-lg">
         <div className="flex items-center gap-2">
-          <span className="text-[10px] font-serif text-brand-earth font-semibold tracking-wider uppercase">NORTHBOUND</span>
+          <span className="text-[10px] font-serif text-brand-earth font-bold tracking-widest uppercase">NORTHBOUND</span>
           <div className="w-1.5 h-1.5 rounded-full bg-brand-earth animate-pulse" />
         </div>
         
         {/* Horizontal Progress Track */}
-        <div className="flex-1 max-w-[50%] mx-3 h-[2px] bg-brand-surface-light relative rounded">
+        <div className="flex-1 max-w-[45%] mx-3 h-[2px] bg-brand-surface-light relative rounded">
           <div 
-            className="absolute top-0 left-0 h-full bg-brand-earth rounded transition-[width] duration-100 ease-out"
+            className="absolute top-0 left-0 h-full bg-brand-earth rounded transition-[width] duration-100 ease-out shadow-[0_0_6px_#a87c66]"
             style={{ width: `${scrollProgress * 100}%` }}
           />
           <div 
-            className="absolute top-1/2 -translate-y-1/2 w-2 h-2 bg-brand-earth border border-brand-bg rounded-full shadow-[0_0_4px_#a87c66] transition-[left] duration-100 ease-out"
-            style={{ left: `calc(${scrollProgress * 100}% - 4px)` }}
+            className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-brand-earth border border-brand-bg rounded-full shadow-[0_0_6px_#a87c66] transition-[left] duration-100 ease-out"
+            style={{ left: `calc(${scrollProgress * 100}% - 5px)` }}
           />
         </div>
 
-        <div className="text-[10px] font-medium text-brand-cream bg-brand-surface/80 border border-brand-surface-light/35 px-2 py-1 rounded">
+        <div className="text-[10px] font-semibold font-serif text-brand-cream bg-brand-surface/90 border border-brand-earth/20 px-2.5 py-1 rounded-md">
           {STATIONS.find(s => s.id === activeStation)?.title || 'Arrival'}
         </div>
       </div>
@@ -143,3 +143,4 @@ const StationRoute = () => {
 };
 
 export default React.memo(StationRoute);
+
