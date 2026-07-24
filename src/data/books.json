@@ -73,5 +73,110 @@
       "The umbrella was like a flower, a great blue flower that had sprung up on the bare hillside. She had never seen anything so beautiful.",
       "She held the umbrella aloft and ran down the slope, spinning it around as she ran. The villagers looked up at her and smiled."
     ]
+  },
+  {
+    "id": "me-before-you",
+    "title": "Me Before You",
+    "author": "Jojo Moyes",
+    "curatorNote": "A heartbreaking romance following Louisa Clark, an eccentric young woman who takes a job caring for Will Traynor, a former high-flyer left paralyzed after an accident.",
+    "whyFits": "A story about how unexpected encounters can alter the course of your life, pushing you to live beyond your comfort zone.",
+    "pdfUrl": "/assets/books/pdfs/Me Before You - Jojo Moyes.pdf",
+    "coverBg": "linear-gradient(135deg, #4a154b 0%, #19051b 100%)",
+    "accentColor": "#e0aaff",
+    "excerpt": [
+      "Louisa Clark is an ordinary girl living an ordinary life—steady boyfriend, close-knit family—who has rarely ventured beyond her tiny village. She takes a job working for Will Traynor, who is wheelchair-bound after an accident.",
+      "Will has lived a huge life—big business, extreme sports, worldwide travel—and now he is certain he cannot live like this. Will is moody, bossy, and caustic, but Lou refuses to treat him with soft gloves.",
+      "Soon, his happiness becomes more important to her than she expected. A deeply emotional tale of two people who couldn't be more different, finding light in each other."
+    ]
+  },
+  {
+    "id": "jane-eyre",
+    "title": "Jane Eyre",
+    "author": "Charlotte Brontë",
+    "curatorNote": "A classic Victorian romance and coming-of-age story about an orphaned governess who faces hardship, solitude, and passion at Thornfield Hall.",
+    "whyFits": "Jane's fierce independence, moral courage, and search for belonging make this timeless novel essential reading.",
+    "pdfUrl": "/assets/books/pdfs/jane-eyre-charlotte-bronte.pdf",
+    "coverBg": "linear-gradient(135deg, #2b1d0f 0%, #0d0803 100%)",
+    "accentColor": "#d4a373",
+    "excerpt": [
+      "Jane Eyre is a young woman who was orphaned at a very young age. Her fate seemed normal and without much excitement, but her life takes an unexpected turn when she is hired as a governess in Thornfield Hall.",
+      "There she meets the enigmatic Mr. Rochester. A series of strange and haunting events begin to take place, while at the same time a deep love begins to bloom between them.",
+      "In this classic novel, we witness how a woman develops her capacity to love and how, despite life's immense adversities and secrets, dignity and devotion survive."
+    ]
+  },
+  {
+    "id": "red-rising",
+    "title": "Red Rising",
+    "author": "Pierce Brown",
+    "curatorNote": "A thrilling sci-fi dystopian tale of Darrow, a Helldiver of Mars, who infiltrates the ruling Gold caste to bring down a tyrannical hierarchy from within.",
+    "whyFits": "High-stakes action, fierce loyalty, and the struggle for justice on a terraformed Mars.",
+    "pdfUrl": "/assets/books/pdfs/red-rising-pierce-brown.pdf",
+    "coverBg": "linear-gradient(135deg, #8b0000 0%, #2b0000 100%)",
+    "accentColor": "#ff4d4d",
+    "excerpt": [
+      "Darrow is a Red, a member of the lowest caste in the color-coded society of the future. Like his fellow Reds, he works all day, believing that he and his people are making the surface of Mars livable for future generations.",
+      "Yet he discovers he and his kind have been betrayed. Humanity reached the surface generations ago, and the Reds are nothing more than slaves to a decadent ruling class of Golds.",
+      "Driven by memory and a longing for justice, Darrow sacrifices everything to infiltrate the Institute where the dominant Gold caste competes for power."
+    ]
+  },
+  {
+    "id": "the-metamorphosis",
+    "title": "The Metamorphosis",
+    "author": "Franz Kafka",
+    "curatorNote": "Kafka's famous surreal novella about Gregor Samsa, a traveling salesman who wakes up one morning transformed into a monstrous insect.",
+    "whyFits": "A profound exploration of isolation, family duty, and the human condition wrapped in a haunting allegory.",
+    "pdfUrl": "/assets/books/pdfs/the-metamorphosis-franz-kafka.pdf",
+    "coverBg": "linear-gradient(135deg, #3d3a2a 0%, #15140e 100%)",
+    "accentColor": "#c2b280",
+    "excerpt": [
+      "One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly.",
+      "Gregor was a traveling salesman whose income supported his entire family. All the events unleashed from this strange phenomenon create a growing narrative tension that does not cease until the end of the story.",
+      "As Gregor tries to navigate his new reality inside his room, his family struggles between pity, disgust, and the harsh pressures of everyday survival."
+    ]
+  },
+  {
+    "id": "power-concentration",
+    "title": "The Power of Concentration",
+    "author": "Theron Q. Dumont",
+    "curatorNote": "A classic guide written in 1918 offering lessons on mental focus, self-mastery, willpower, and quiet mental poise.",
+    "whyFits": "Great for sharpening focus and cultivating quiet mental clarity during quiet study hours.",
+    "pdfUrl": "/assets/books/pdfs/thepower-of-concentration-theron-q-dumont.pdf",
+    "coverBg": "linear-gradient(135deg, #1f3a52 0%, #0a1520 100%)",
+    "accentColor": "#8ecae6",
+    "excerpt": [
+      "Concentration finds the way. It is the key to mental mastery, allowing you to focus your mind's scattered energy onto a single goal until obstacles give way.",
+      "The person who can concentrate can command their own attention, quiet unwanted thoughts, and channel their willpower toward constructive action in business and personal life.",
+      "Concentration gives mental poise. Through daily practice of steady attention, you develop an inner calm and confidence that remains steadfast even amidst surrounding turmoil."
+    ]
+  },
+  {
+    "id": "white-nights",
+    "title": "White Nights",
+    "author": "Fyodor Dostoevsky",
+    "curatorNote": "A poignant sentimental story set during four magical Saint Petersburg summer nights, where a lonely narrator meets Nastenka.",
+    "whyFits": "Captures the delicate beauty of fleeting encounters, late-night walks, and quiet romantic longing.",
+    "pdfUrl": "/assets/books/pdfs/white-nights-fiodor-dostoievski.pdf",
+    "coverBg": "linear-gradient(135deg, #1c2a38 0%, #081018 100%)",
+    "accentColor": "#a0c4ff",
+    "excerpt": [
+      "The story takes place during four white nights in Saint Petersburg—a natural phenomenon where twilight lasts all night. The narrator, a lonely dreamer who wanders the city streets, meets Nastenka crying on a bridge.",
+      "After defending her from a harasser, Nastenka agrees to meet him each night as a friend, on the sole condition that he must not fall in love with her.",
+      "Over four quiet nights under the dim northern sky, they share their deepest secrets and longings, creating a fragile bond of romance and heartfelt melancholy."
+    ]
+  },
+  {
+    "id": "wuthering-heights",
+    "title": "Wuthering Heights",
+    "author": "Emily Brontë",
+    "curatorNote": "A dark, wild masterpiece of love, obsession, and revenge set on the bleak Yorkshire moors between Heathcliff and Catherine Earnshaw.",
+    "whyFits": "Atmospheric and intense, echoing the stormy, mist-covered heights of mountain landscapes.",
+    "pdfUrl": "/assets/books/pdfs/wuthering-heights-emily-bronte.pdf",
+    "coverBg": "linear-gradient(135deg, #30232b 0%, #120b10 100%)",
+    "accentColor": "#b5838d",
+    "excerpt": [
+      "When Mr. Earnshaw brings the orphaned Heathcliff home to Wuthering Heights, he sparks an intense relationship between Heathcliff and his daughter Catherine, as well as fierce hatred from her brother Hindley.",
+      "Heathcliff and Catherine share an unspoken, almost mystical connection amidst the windy moors, but social pressures and misunderstandings force them apart.",
+      "Jealousy, revenge, and passion interweave against the cloudy and cold landscape, reflecting the tormented psychology of the characters across generations."
+    ]
   }
 ]
