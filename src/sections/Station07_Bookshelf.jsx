@@ -5,6 +5,9 @@ import booksData from '../data/books';
 import { BookOpen, X, ChevronLeft, ChevronRight, ExternalLink, Sparkles } from 'lucide-react';
 
 const BookComponent = memo(({ book, onSelect }) => {
+  const [hasError, setHasError] = useState(false);
+  const showCoverImage = Boolean(book.coverImage) && !hasError;
+
   return (
     <div className="flex flex-col items-center group relative shrink-0">
       {/* Visual vertical book on shelf */}
@@ -17,34 +20,46 @@ const BookComponent = memo(({ book, onSelect }) => {
         }}
         transition={{ type: 'spring', stiffness: 280, damping: 20 }}
         onClick={() => onSelect(book.id)}
-        className="w-[105px] h-[160px] md:w-[125px] md:h-[190px] rounded-r-md cursor-pointer relative shadow-2xl shadow-black/60 origin-left flex items-stretch border-y border-r border-white/10"
+        className="w-[105px] h-[160px] md:w-[125px] md:h-[190px] rounded-r-md cursor-pointer relative shadow-2xl shadow-black/60 origin-left flex items-stretch border-y border-r border-white/10 overflow-hidden"
         style={{
-          background: book.coverBg,
+          background: showCoverImage ? `url("${encodeURI(book.coverImage)}") center/cover no-repeat` : book.coverBg,
           transformStyle: 'preserve-3d',
           perspective: 1000
         }}
       >
+        {/* Hidden image element to detect load errors */}
+        {book.coverImage && (
+          <img
+            src={book.coverImage}
+            alt=""
+            className="hidden"
+            onError={() => setHasError(true)}
+          />
+        )}
+
         {/* Book spine line & shadow */}
-        <div className="w-[12px] md:w-[14px] bg-black/40 border-r border-white/10 shrink-0 shadow-inner flex flex-col items-center justify-between py-2">
+        <div className="w-[12px] md:w-[14px] bg-black/40 border-r border-white/10 shrink-0 shadow-inner flex flex-col items-center justify-between py-2 z-10">
           <div className="w-[2px] h-5 bg-white/20 rounded" />
           <div className="w-[2px] h-5 bg-white/20 rounded" />
         </div>
 
-        {/* Book cover text */}
-        <div className="flex-1 flex flex-col justify-between p-2.5 md:p-3 select-none">
-          <div className="border border-brand-cream/15 p-1.5 rounded-sm flex-1 flex flex-col justify-between bg-black/10">
-            <span className="text-[6px] md:text-[7px] font-sans tracking-widest text-brand-cream/60 group-hover:text-brand-cream transition-colors uppercase block leading-tight truncate">
-              {book.author}
-            </span>
-            <h4 className="text-[10px] md:text-xs font-serif text-brand-cream text-center font-semibold leading-tight my-auto px-0.5 group-hover:scale-105 transition-transform">
-              {book.title}
-            </h4>
-            <div className="w-5 h-[1px] bg-brand-earth/40 mx-auto" />
+        {/* Book cover text overlay (only displayed if no cover image or if cover image fails to load) */}
+        {!showCoverImage && (
+          <div className="flex-1 flex flex-col justify-between p-2.5 md:p-3 select-none">
+            <div className="border border-brand-cream/15 p-1.5 rounded-sm flex-1 flex flex-col justify-between bg-black/10">
+              <span className="text-[6px] md:text-[7px] font-sans tracking-widest text-brand-cream/60 group-hover:text-brand-cream transition-colors uppercase block leading-tight truncate">
+                {book.author}
+              </span>
+              <h4 className="text-[10px] md:text-xs font-serif text-brand-cream text-center font-semibold leading-tight my-auto px-0.5 group-hover:scale-105 transition-transform">
+                {book.title}
+              </h4>
+              <div className="w-5 h-[1px] bg-brand-earth/40 mx-auto" />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Subtle depth shadow at bottom */}
-        <div className="absolute bottom-0 left-0 w-full h-3 bg-gradient-to-t from-black/40 to-transparent rounded-b" />
+        <div className="absolute bottom-0 left-0 w-full h-3 bg-gradient-to-t from-black/40 to-transparent rounded-b z-10" />
       </motion.div>
 
       {/* Book details tooltip on hover */}

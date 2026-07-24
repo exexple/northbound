@@ -6,6 +6,7 @@
     "curatorNote": "Written by Ruskin when he was just seventeen, living in Dehradun. It captures the local streets, the dust, the heavy monsoon, and the intense, shifting friendships of youth.",
     "whyFits": "It is the ultimate Dehradun coming-of-age story. A small room of one's own under the sloping roofs can be the centre of the world.",
     "pdfUrl": "/assets/books/pdfs/The Room on the Roof - Ruskin Bond.pdf",
+    "coverImage": "/assets/books/covers/the room on the roof.jpg",
     "coverBg": "linear-gradient(135deg, #2c3e50 0%, #0f2027 100%)",
     "accentColor": "#a87c66",
     "excerpt": [
@@ -21,6 +22,7 @@
     "curatorNote": "Ten letters written to an aspiring cadet about solitude, love, career choices, and the slow, internal process of growth. Elegant and incredibly profound.",
     "whyFits": "An essential companion for starting college. Rilke's words will remind you to 'be patient toward all that is unsolved in your heart' when things feel overwhelming.",
     "pdfUrl": "/assets/books/pdfs/Rilke_Rainer_Maria_Letters_to_a_Young_Poet.pdf",
+    "coverImage": "/assets/books/covers/letters to a young poet.jpg",
     "coverBg": "linear-gradient(135deg, #5c2c16 0%, #2b1107 100%)",
     "accentColor": "#a87c66",
     "excerpt": [
@@ -36,6 +38,7 @@
     "curatorNote": "A short story collection set in the trains and small stations of India. The title story is one of the most beautiful pieces of Indian short fiction — brief, haunting, and deeply atmospheric.",
     "whyFits": "The train is how you'll arrive. These stories carry the same rhythm as the journey itself — moments glimpsed from a moving window.",
     "pdfUrl": "/assets/books/pdfs/the-night-train-at-deoli-and-other-stories-ruskin-bond.pdf",
+    "coverImage": "/assets/books/covers/the night train at deoli.jpg",
     "coverBg": "linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%)",
     "accentColor": "#c4a882",
     "excerpt": [
@@ -51,6 +54,7 @@
     "curatorNote": "A gentle fable about a village girl in the hills who finds a beautiful blue umbrella. A story about desire, envy, generosity, and the small economies of mountain towns.",
     "whyFits": "Short, charming, and set in the hills you'll be living in. You could read it in a single evening on a rainy night.",
     "pdfUrl": "/assets/books/pdfs/the-blue-umbrella-by-ruskin-bond.pdf",
+    "coverImage": "/assets/books/covers/the blue umbrella.jpg",
     "coverBg": "linear-gradient(135deg, #1e3a5f 0%, #0c1929 100%)",
     "accentColor": "#7ba7d1",
     "excerpt": [
@@ -66,6 +70,7 @@
     "curatorNote": "A classic adventure novel following Buck, a domesticated dog stolen from his California home and sold into the harsh Klondike Gold Rush of the 1890s.",
     "whyFits": "A visceral journey into primitive instinct, survival, and the wild beauty of frozen northern wilderness.",
     "pdfUrl": "/assets/books/pdfs/Call of Wild.pdf",
+    "coverImage": "/assets/books/covers/the call of the wild.jpg",
     "coverBg": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
     "accentColor": "#94a3b8",
     "excerpt": [
@@ -81,6 +86,7 @@
     "curatorNote": "The true story of Christopher McCandless, a young man who gave up his savings and possessions to hitchhike into the Alaskan wilderness to seek solitude.",
     "whyFits": "A gripping exploration of wanderlust, idealist solitude, and the raw power of nature in the far north.",
     "pdfUrl": "/assets/books/pdfs/Into The Wild.pdf",
+    "coverImage": "/assets/books/covers/into the wild.jpg",
     "coverBg": "linear-gradient(135deg, #064e3b 0%, #022c22 100%)",
     "accentColor": "#6ee7b7",
     "excerpt": [
@@ -96,6 +102,7 @@
     "curatorNote": "A heartbreaking romance following Louisa Clark, an eccentric young woman who takes a job caring for Will Traynor, a former high-flyer left paralyzed after an accident.",
     "whyFits": "A story about how unexpected encounters can alter the course of your life, pushing you to live beyond your comfort zone.",
     "pdfUrl": "/assets/books/pdfs/Me Before You - Jojo Moyes.pdf",
+    "coverImage": "/assets/books/covers/me before you.jpg",
     "coverBg": "linear-gradient(135deg, #4a154b 0%, #19051b 100%)",
     "accentColor": "#e0aaff",
     "excerpt": [
@@ -111,6 +118,7 @@
     "curatorNote": "A classic Victorian romance and coming-of-age story about an orphaned governess who faces hardship, solitude, and passion at Thornfield Hall.",
     "whyFits": "Jane's fierce independence, moral courage, and search for belonging make this timeless novel essential reading.",
     "pdfUrl": "/assets/books/pdfs/jane-eyre-charlotte-bronte.pdf",
+    "coverImage": "/assets/books/covers/jane eyre.jpg",
     "coverBg": "linear-gradient(135deg, #2b1d0f 0%, #0d0803 100%)",
     "accentColor": "#d4a373",
     "excerpt": [
@@ -126,6 +134,7 @@
     "curatorNote": "A thrilling sci-fi dystopian tale of Darrow, a Helldiver of Mars, who infiltrates the ruling Gold caste to bring down a tyrannical hierarchy from within.",
     "whyFits": "High-stakes action, fierce loyalty, and the struggle for justice on a terraformed Mars.",
     "pdfUrl": "/assets/books/pdfs/red-rising-pierce-brown.pdf",
+    "coverImage": "/assets/books/covers/red rising.jpg",
     "coverBg": "linear-gradient(135deg, #8b0000 0%, #2b0000 100%)",
     "accentColor": "#ff4d4d",
     "excerpt": [
@@ -141,6 +150,7 @@
     "curatorNote": "Kafka's famous surreal novella about Gregor Samsa, a traveling salesman who wakes up one morning transformed into a monstrous insect.",
     "whyFits": "A profound exploration of isolation, family duty, and the human condition wrapped in a haunting allegory.",
     "pdfUrl": "/assets/books/pdfs/the-metamorphosis-franz-kafka.pdf",
+    "coverImage": "/assets/books/covers/the metamorphosis.jpg",
     "coverBg": "linear-gradient(135deg, #3d3a2a 0%, #15140e 100%)",
     "accentColor": "#c2b280",
     "excerpt": [
@@ -156,6 +166,7 @@
     "curatorNote": "A classic guide written in 1918 offering lessons on mental focus, self-mastery, willpower, and quiet mental poise.",
     "whyFits": "Great for sharpening focus and cultivating quiet mental clarity during quiet study hours.",
     "pdfUrl": "/assets/books/pdfs/thepower-of-concentration-theron-q-dumont.pdf",
+    "coverImage": "/assets/books/covers/the power of concentration.jpg",
     "coverBg": "linear-gradient(135deg, #1f3a52 0%, #0a1520 100%)",
     "accentColor": "#8ecae6",
     "excerpt": [
@@ -171,6 +182,7 @@
     "curatorNote": "A poignant sentimental story set during four magical Saint Petersburg summer nights, where a lonely narrator meets Nastenka.",
     "whyFits": "Captures the delicate beauty of fleeting encounters, late-night walks, and quiet romantic longing.",
     "pdfUrl": "/assets/books/pdfs/white-nights-fiodor-dostoievski.pdf",
+    "coverImage": "/assets/books/covers/white nights.jpg",
     "coverBg": "linear-gradient(135deg, #1c2a38 0%, #081018 100%)",
     "accentColor": "#a0c4ff",
     "excerpt": [
@@ -186,6 +198,7 @@
     "curatorNote": "A dark, wild masterpiece of love, obsession, and revenge set on the bleak Yorkshire moors between Heathcliff and Catherine Earnshaw.",
     "whyFits": "Atmospheric and intense, echoing the stormy, mist-covered heights of mountain landscapes.",
     "pdfUrl": "/assets/books/pdfs/wuthering-heights-emily-bronte.pdf",
+    "coverImage": "/assets/books/covers/wuthering heights.jpg",
     "coverBg": "linear-gradient(135deg, #30232b 0%, #120b10 100%)",
     "accentColor": "#b5838d",
     "excerpt": [
