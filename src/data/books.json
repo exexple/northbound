@@ -15,27 +15,12 @@
     ]
   },
   {
-    "id": "rain-mountains",
-    "title": "Rain in the Mountains",
-    "author": "Ruskin Bond",
-    "curatorNote": "A quiet collection of diary entries, essays, and poems about the rhythmic cycles of valley rains, mountain birds, and the slow growth of pine seedlings.",
-    "whyFits": "Perfect for reading when it pours outside your hostel window. It teaches you to love the damp mist, the moss on the walls, and the quietness of the hills.",
-    "pdfUrl": "/assets/books/pdfs/rain-in-the-mountains.pdf",
-    "coverBg": "linear-gradient(135deg, #1b4d3e 0%, #0d2b22 100%)",
-    "accentColor": "#ebdcb9",
-    "excerpt": [
-      "Rain in the hills is different from rain in the plains. It does not just fall; it settles in. It rolls up the valley in great banks of white mist, swallowing the trees and the houses until only the peak of the ridge remains.",
-      "The pine needles glisten with droplets, and the sound of water dripping from the tin roof is a steady, soothing rhythm. It is a time for hot ginger tea, for sitting by the fireplace with an old journal, and for listening to the wind sighing through the deodars.",
-      "The ferns and wild begonias grow thick on the stone walls, and the moss grows rich and green on the oak trees. To live in the hills is to live in close company with nature, where every rainstorm is a cleaning of the soul."
-    ]
-  },
-  {
     "id": "letters-poet",
     "title": "Letters to a Young Poet",
     "author": "Rainer Maria Rilke",
     "curatorNote": "Ten letters written to an aspiring cadet about solitude, love, career choices, and the slow, internal process of growth. Elegant and incredibly profound.",
     "whyFits": "An essential companion for starting college. Rilke's words will remind you to 'be patient toward all that is unsolved in your heart' when things feel overwhelming.",
-    "pdfUrl": "/assets/books/pdfs/letters-to-a-young-poet.pdf",
+    "pdfUrl": "/assets/books/pdfs/Rilke_Rainer_Maria_Letters_to_a_Young_Poet.pdf",
     "coverBg": "linear-gradient(135deg, #5c2c16 0%, #2b1107 100%)",
     "accentColor": "#a87c66",
     "excerpt": [
@@ -50,7 +35,7 @@
     "author": "Ruskin Bond",
     "curatorNote": "A short story collection set in the trains and small stations of India. The title story is one of the most beautiful pieces of Indian short fiction — brief, haunting, and deeply atmospheric.",
     "whyFits": "The train is how you'll arrive. These stories carry the same rhythm as the journey itself — moments glimpsed from a moving window.",
-    "pdfUrl": "/assets/books/pdfs/night-train-at-deoli.pdf",
+    "pdfUrl": "/assets/books/pdfs/the-night-train-at-deoli-and-other-stories-ruskin-bond.pdf",
     "coverBg": "linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%)",
     "accentColor": "#c4a882",
     "excerpt": [
@@ -65,13 +50,43 @@
     "author": "Ruskin Bond",
     "curatorNote": "A gentle fable about a village girl in the hills who finds a beautiful blue umbrella. A story about desire, envy, generosity, and the small economies of mountain towns.",
     "whyFits": "Short, charming, and set in the hills you'll be living in. You could read it in a single evening on a rainy night.",
-    "pdfUrl": "/assets/books/pdfs/the-blue-umbrella.pdf",
+    "pdfUrl": "/assets/books/pdfs/the-blue-umbrella-by-ruskin-bond.pdf",
     "coverBg": "linear-gradient(135deg, #1e3a5f 0%, #0c1929 100%)",
     "accentColor": "#7ba7d1",
     "excerpt": [
       "Binya was a girl who lived with her mother and an elder brother in a little village above Doiwara. She had two goats, a black one and a brown one, and she took them out to graze on the hillside.",
       "The umbrella was like a flower, a great blue flower that had sprung up on the bare hillside. She had never seen anything so beautiful.",
       "She held the umbrella aloft and ran down the slope, spinning it around as she ran. The villagers looked up at her and smiled."
+    ]
+  },
+  {
+    "id": "call-of-the-wild",
+    "title": "The Call of the Wild",
+    "author": "Jack London",
+    "curatorNote": "A classic adventure novel following Buck, a domesticated dog stolen from his California home and sold into the harsh Klondike Gold Rush of the 1890s.",
+    "whyFits": "A visceral journey into primitive instinct, survival, and the wild beauty of frozen northern wilderness.",
+    "pdfUrl": "/assets/books/pdfs/Call of Wild.pdf",
+    "coverBg": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+    "accentColor": "#94a3b8",
+    "excerpt": [
+      "Buck did not read the newspapers, or he would have known that trouble was brewing, not alone for himself, but for every tide-water dog, strong of muscle and with warm, long hair, from Puget Sound to San Diego.",
+      "Because men, groping in the Arctic darkness, had found a yellow metal, and because steamship and transportation companies were advertising the find, thousands of men were rushing into the Northland. These men wanted heavy dogs with strong muscles to toil and furry coats to protect them from the frost.",
+      "Buck lived at a big house in the sun-kissed Santa Clara Valley. Judge Miller's place, it was called. But he was stolen and sold to work as a sled dog in the frozen Yukon, where he learned the ancient law of club and fang."
+    ]
+  },
+  {
+    "id": "into-the-wild",
+    "title": "Into the Wild",
+    "author": "Jon Krakauer",
+    "curatorNote": "The true story of Christopher McCandless, a young man who gave up his savings and possessions to hitchhike into the Alaskan wilderness to seek solitude.",
+    "whyFits": "A gripping exploration of wanderlust, idealist solitude, and the raw power of nature in the far north.",
+    "pdfUrl": "/assets/books/pdfs/Into The Wild.pdf",
+    "coverBg": "linear-gradient(135deg, #064e3b 0%, #022c22 100%)",
+    "accentColor": "#6ee7b7",
+    "excerpt": [
+      "In April 1992, a young man from a well-to-do family hitchhiked to Alaska and walked alone into the wilderness north of Mt. McKinley. Four months later, his body was found by moose hunters inside an abandoned bus.",
+      "His name was Christopher Johnson McCandless. Immediately after graduating with honors from Emory University, McCandless dropped out of sight, gave his savings to charity, abandoned his car, and invented a new life for himself.",
+      "He sought a life of raw engagement, uncluttered by material possessions. Krakauer reconstructs McCandless's journey, capturing the haunting allure and ruthless reality of wild nature."
     ]
   },
   {
